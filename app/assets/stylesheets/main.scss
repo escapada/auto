@@ -1,0 +1,12 @@
+*{margin:0; padding:0; font-size: 12px; font-family: helvetica, arial, sans-serif; list-style-type:none; text-decoration:none;}
+body{}
+#header100{width: 100%;}
+#header{max-width: 1919px; margin: 0 auto; height: 223px; background: url(header_bg.jpg) no-repeat center; }
+#headertxtline{width:100%; height:40px; background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)";}
+#leftinfo{width:30%; height:100%; line-height: 40px; text-align: left; float: left;}
+#rightinfo{width:70%; height:100%; line-height: 40px; text-align: right; float: right;}
+#topmenu100{max-width: 1919px; margin: 0 auto; height:48px; border-top: 1px solid #eee; border-bottom: 2px solid #ddd;/*clear: right;*/}
+#menu li{float:left; line-height:50px; margin: 0 15px 0 0; a{color:#aaa;}}
+.selected a, a :hower{color:#000;} 
+
+.wrap{width:974px; margin: 0 auto; padding: 0 15px;}
