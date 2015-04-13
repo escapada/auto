@@ -1,0 +1,30 @@
+nl:
+  refinery:
+    plugins:
+      items:
+        title: Items
+    items:
+      admin:
+        items:
+          actions:
+            create_new: Nieuwe Item toevoegen
+            reorder: De volgorde van de Items wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Item-volgorde
+          records:
+            title: Items
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Items. Druk op 'Nieuwe Item toevoegen' om de eerste toe te voegen.
+          item:
+            view_live_html: Deze item op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze item
+            delete: Deze item definitief verwijderen
+      items:
+        show:
+          other: Andere Items
+  activerecord:
+    attributes:
+      'refinery/items/item':
+        model: Model
+        title: Title
+        meta: Meta
+        description: Description

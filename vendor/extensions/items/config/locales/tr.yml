@@ -1,0 +1,30 @@
+tr:
+  refinery:
+    plugins:
+      items:
+        title: Items
+    items:
+      admin:
+        items:
+          actions:
+            create_new: Yeni Ekle Item
+            reorder: Tekrar sirala Items
+            reorder_done: Tekrar siralama tamamlandiItems
+          records:
+            title: Items
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Items yok henuz.  Tikla "Yeni Ekle Item" eklemek senin ilk item.
+          item:
+            view_live_html: Bunu canlu item goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle item
+            delete: Bunu Sil item sonsuza dek
+      items:
+        show:
+          other: Diger Items
+  activerecord:
+    attributes:
+      'refinery/items/item':
+        model: Model
+        title: Title
+        meta: Meta
+        description: Description

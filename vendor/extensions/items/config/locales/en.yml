@@ -1,0 +1,30 @@
+en:
+  refinery:
+    plugins:
+      items:
+        title: Items
+    items:
+      admin:
+        items:
+          actions:
+            create_new: Add New Item
+            reorder: Reorder Items
+            reorder_done: Done Reordering Items
+          records:
+            title: Items
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Items yet. Click "Add New Item" to add your first item.
+          item:
+            view_live_html: View this item live <br/><em>(opens in a new window)</em>
+            edit: Edit this item
+            delete: Remove this item forever
+      items:
+        show:
+          other: Other Items
+  activerecord:
+    attributes:
+      'refinery/items/item':
+        model: Model
+        title: Title
+        meta: Meta
+        description: Description

@@ -1,0 +1,30 @@
+fr:
+  refinery:
+    plugins:
+      items:
+        title: Items
+    items:
+      admin:
+        items:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Item
+            reorder: Réordonner les Items
+            reorder_done: Fin de réordonnancement des Items
+          records:
+            title: Items
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Item. Cliquer sur "Créer un(e) nouve(au/l/lle) Item" pour créer votre premi(er/ère) item.'
+          item:
+            view_live_html: Voir ce(t/tte) item <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) item
+            delete: Supprimer définitivement ce(t/tte) item
+      items:
+        show:
+          other: Autres Items
+  activerecord:
+    attributes:
+      'refinery/items/item':
+        model: Model
+        title: Title
+        meta: Meta
+        description: Description

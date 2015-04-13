@@ -1,0 +1,32 @@
+zh-CN:
+  refinery:
+    plugins:
+      items:
+        title: Items
+    items:
+      admin:
+        items:
+          actions:
+            create_new: 建立新的 Item
+            reorder: 对 Items 重新排序
+            reorder_done: 对 Items 的重新排序结束
+          records:
+            title: Items
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Items yet. Click "Add New Item" to add your first item.
+            no_items_yet: 目前没有 Items . 点击 "Add New Item" 创建一个item.
+          item:
+            view_live_html: 查看 item 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 item
+            delete: 永久删除 item
+      items:
+        show:
+          other: 其他 Items
+  activerecord:
+    attributes:
+      'refinery/items/item':
+        model: Model
+        title: Title
+        meta: Meta
+        description: Description
