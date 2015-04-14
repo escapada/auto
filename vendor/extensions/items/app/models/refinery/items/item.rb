@@ -5,7 +5,9 @@ module Refinery
 
       attr_accessible :model, :title, :meta, :description, :position
 
-      validates :model, :presence => true, :uniqueness => true
+      validates :model, :presence => true#, :uniqueness => true
+
+      has_many :item_photos
     end
   end
 end

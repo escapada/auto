@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150413125931) do
+ActiveRecord::Schema.define(:version => 20150414092758) do
 
   create_table "item_photos", :force => true do |t|
     t.string   "image_uid"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20150413125931) do
     t.integer  "image_height"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "item_id"
   end
 
   create_table "refinery_image_page_translations", :force => true do |t|
