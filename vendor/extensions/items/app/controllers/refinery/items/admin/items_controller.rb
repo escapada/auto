@@ -3,7 +3,7 @@ module Refinery
     module Admin
       class ItemsController < ::Refinery::AdminController
 
-      	before_filter :find_all_photos#, :only => [:show]
+      	#before_filter :find_all_photos#, :only => [:show]
 
       protected
 
