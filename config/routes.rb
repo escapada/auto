@@ -1,5 +1,5 @@
 Refinery::Core::Engine.routes.prepend do
-  resources :item_photo#, only: [:new, :create, :index]
+  resources :item_photo, only: [:new, :create, :index]
 end
 Auto::Application.routes.draw do
 

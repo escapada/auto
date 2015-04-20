@@ -1,6 +1,6 @@
 require 'dragonfly'
 
-myuploader = Dragonfly[:item_photos]
+myuploader = Dragonfly[:myappp]
 myuploader.configure_with(:imagemagick)
 myuploader.configure_with(:rails)
 

@@ -74,7 +74,7 @@ module Auto
     } # unless Rails.env.production?      ## uncomment this 'unless' in Rails 3.1,
                                           ## because it already inserts Rack::Cache in production
 
-    config.middleware.insert_after 'Rack::Cache', 'Dragonfly::Middleware', :item_photos
+    config.middleware.insert_after 'Rack::Cache', 'Dragonfly::Middleware', :myappp
   end
 end
 
