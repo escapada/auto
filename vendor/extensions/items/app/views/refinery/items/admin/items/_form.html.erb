@@ -1,5 +1,4 @@
-<%# photo_arr = @item.itemphoto.all %>
-<%= form_for [refinery, :items_admin, @item] do |f| -%>
+<%= form_for [refinery, :items_admin, @item], :html => { :multipart => true } do |f| -%>
   <%= render '/refinery/admin/error_messages',
               :object => @item,
               :include_object_name => true %>
@@ -27,17 +26,10 @@
   </div>
 
   <div class="form-actions">
-    <% form_for @photo do |f| %>
-      <%= f.file_field :image %>
-    <% end %>
+    <%= f.fields_for :item_photo do |child_form| -%>
+    <%= child_form.file_field :image %>
+  <% end %>
     <span class="addimg">add</span>
-    <div class="listimgs">
-      <% @item_photos.each do |photo|%>
-      <div class="itemthumb">
-        <%= image_tag(photo.image.thumb('180x180#').url, alt: photo.title, class: 'img-thumbnail')%>
-      </div>
-      <%end%>
-    </div>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,
