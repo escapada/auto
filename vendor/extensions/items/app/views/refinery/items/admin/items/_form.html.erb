@@ -27,7 +27,9 @@
 
   <div class="form-actions">
     <%= f.fields_for :item_photo do |child_form| -%>
-    <%= child_form.file_field :image %>
+    <%#= child_form.file_field :image %>
+    <%= child_form.check_box :main %>
+
   <% end %>
     <span class="addimg">add</span>
   </div>
