@@ -1,5 +1,6 @@
 Refinery::Core::Engine.routes.prepend do
   resources :item_photo, only: [:new, :create, :index]
+  match 'newphoto', to: 'newphoto#cry', via: [:get, :post]
 end
 Auto::Application.routes.draw do
 

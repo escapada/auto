@@ -26,12 +26,14 @@
   </div>
 
   <div class="form-actions">
+    <%#= form_for :item_photo, url_for(:controller => 'newphoto', :action => 'cry') do |child_form| -%>
     <%= f.fields_for :item_photo do |child_form| -%>
     <%#= child_form.file_field :image %>
-    <%= child_form.check_box :main %>
-
+    <%= child_form.check_box :main, class: 'ifcheked' %>
   <% end %>
-    <span class="addimg">add</span>
+    <span id="addimg">add</span>
+    <div class="listimgs">
+    </div>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,
