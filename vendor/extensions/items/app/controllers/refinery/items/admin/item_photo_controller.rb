@@ -2,7 +2,7 @@ module Refinery
   module Items
     module Admin
       class ItemPhotoController < ::Refinery::AdminController
-        after_save :sss
+        #after_save :sss
 
         def index
           @photos = ItemPhoto.all
