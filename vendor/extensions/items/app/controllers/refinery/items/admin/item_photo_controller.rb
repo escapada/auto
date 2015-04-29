@@ -9,17 +9,17 @@ module Refinery
         end
        
         def new
-          @photo = ItemPhoto.new
+          @photo = Refinery::Items::ItemPhoto.new
         end
        
         def create
-          @photo = ItemPhoto.new(photo_params)
-          if @photo.save
-            flash[:success] = "Photo saved!"
-            redirect_to item_photo_path
-          else
-            render 'new'
-          end
+          @photo = Refinery::Items::ItemPhoto.create(item_photo_params)
+          # if @photo.save
+          #   flash[:success] = "Photo saved!"
+          #   redirect_to item_photo_path
+          # else
+          #   render 'new'
+          # end
         end
         
       end

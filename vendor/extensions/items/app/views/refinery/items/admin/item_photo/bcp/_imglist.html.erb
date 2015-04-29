@@ -26,10 +26,12 @@
   </div>
 
   <div class="form-actions">
-    <%# render 'imglist' %>
-    <%= f.fields_for :photo do |child_form| -%>
+    <%#= form_tag('/item_photo', remote: true) do |child_form| %>
+    <%#= form_for :item_photo, url_for(:controller => 'newphoto', :action => 'cry') do |child_form| -%>
+    <%= f.fields_for :item_photo do |child_form| -%>
+    <%#= child_form.file_field :image %>
     <%= child_form.check_box :main, class: 'ifcheked' %>
-    <% end %>
+  <% end %>
     <span id="addimg">add</span>
     <div class="listimgs">
     </div>
