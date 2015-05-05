@@ -5,9 +5,9 @@ module Refinery
       
       #has_many :item_photos
       has_many :photos, :class_name => '::Refinery::Items::ItemPhoto'
-      accepts_nested_attributes_for :photos, :allow_destroy => true #, allow_destroy: true
+      #accepts_nested_attributes_for :photos, :allow_destroy => true #, allow_destroy: true
 
-      attr_accessible :model, :title, :meta, :description, :position, :photos_attributes
+      attr_accessible :model, :title, :meta, :description, :position#, :photos_attributes
 
       validates :model, :presence => true#, :uniqueness => true
 
