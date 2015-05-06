@@ -1,6 +1,6 @@
 Refinery::Items::ItemsController.class_eval do
 	#before_filter :get_photos
-	after_filter :get_photos
+	#after_filter :get_photos
 
 	def cry
 		#@photo = Refinery::Items::ItemPhoto.new		
