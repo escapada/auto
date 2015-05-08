@@ -32,6 +32,15 @@ module Refinery
 					# end
 				end
 
+        def before_attach(photos)
+          up_photos = Array.new()
+          photos.each do |photo|
+            one = ItemPhoto.create(photo)
+            up_photos << one
+          end
+          render up_photos
+        end 
+
       end
     end
   end
