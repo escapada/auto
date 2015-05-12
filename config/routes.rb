@@ -3,15 +3,16 @@ Refinery::Core::Engine.routes.prepend do
   #match 'newphoto', to: 'newphoto#cry', via: [:get, :post]
   
   # Admin routes
-  # namespace :items, :path => '' do
-  #   namespace :admin, :path => Refinery::Core.backend_route do
-  #     resources :item_photo, :except => :show do
-  #       collection do
-  #         post :update_positions
-  #       end
-  #     end
-  #   end
-  # end
+  namespace :items, :path => '' do
+    namespace :admin, :path => Refinery::Core.backend_route do
+      resources :item_photo, :except => :show do
+        collection do
+          post :update_positions
+        end
+      end
+    end
+  end
+  match '/add_photo', to: 'items_admin#add_photo', :as => :add_photo#, via: [:get, :post]
 
 end
 Auto::Application.routes.draw do

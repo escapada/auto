@@ -32,13 +32,22 @@ module Refinery
 					# end
 				end
 
+        def add_photo       
+            tmp_photo = params[:item][:item_photo]
+            
+            @photo = ItemPhoto.new(params[:item][:item_photo])
+            @photo.save
+            flash[:success] = "Item saved! #{tmp_photo  }"
+            redirect_to refinery.items_admin_items_path
+        end
+
         def before_attach(photos)
           up_photos = Array.new()
           photos.each do |photo|
             one = ItemPhoto.create(photo)
             up_photos << one
           end
-          render up_photos
+          render :list => up_photos
         end 
 
       end
