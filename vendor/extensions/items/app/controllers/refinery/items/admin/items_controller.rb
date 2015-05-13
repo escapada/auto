@@ -32,13 +32,44 @@ module Refinery
 					# end
 				end
 
-        def add_photo       
-            tmp_photo = params[:item][:item_photo]
-            
-            @photo = ItemPhoto.new(params[:item][:item_photo])
-            @photo.save
-            flash[:success] = "Item saved! #{tmp_photo  }"
-            redirect_to refinery.items_admin_items_path
+        def add_photo
+          #@all_items = Array.new()    #params[:item_photo][:all]  
+          @item = Item.new
+          @photos = ItemPhoto.new
+               
+          @tmp_photo = params[:item_photo]
+          @photo = ItemPhoto.new(params[:item_photo])
+
+          respond_to do |format|
+            if @photo.save
+              #format.html { redirect_to refinery.items_admin_items_path, notice: 'Item saved! #{tmp_photo.count}' }
+              format.js   {}
+              #format.json { render json: @photo, status: :created, location: @photo }
+            else
+              render 'new'
+            end
+          end
+        end
+
+        def add_photo_
+          @all_items = params[:item_photo][:all]       
+          @tmp_photo = params[:item_photo].except(:all)
+
+          @photo = ItemPhoto.new(@tmp_photo)
+          if @photo.save
+            flash[:success] = "Item saved! #{tmp_photo.count  }"
+            @all_items << @tmp_photo
+            #render :all_items => @all_items
+          end
+          #redirect_to refinery.items_admin_items_path
+        end
+
+        def delete_photo                   
+            #@photo = ItemPhoto.new(params[:item_photo])
+            #@photo.save
+            #flash[:success] = "Item saved! #{tmp_photo.count  }"
+
+            #redirect_to refinery.items_admin_items_path
         end
 
         def before_attach(photos)

@@ -13,7 +13,11 @@ Refinery::Core::Engine.routes.draw do
           post :update_positions
         end
       end
+      #get 'add_photo', :to => 'item_photo#add_photo', :as => :add_photo
+      match 'add_photo', to: 'items#add_photo', :as => :add_photo, via: [:patch, :put, :post]
     end
   end
 
 end
+
+# get 'news/more' => 'news::items#view_more', as: :news_view_more

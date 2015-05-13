@@ -1,0 +1,6 @@
+<%= link_to "some shit", refinery.items_admin_add_photo_path, remote: true %>
+<%= form_tag refinery.items_admin_add_photo_path, method: :post, id: 'photoinfo', remote: true, html: { multipart: true } do |f|%>
+    <%= file_field_tag :image, accept: 'image/png,image/gif,image/jpeg, image/jpg'%>
+    <%#= check_box_tag('main', value='0') %>
+    <%= submit_tag 'Добавить фото'%>
+  <% end %>

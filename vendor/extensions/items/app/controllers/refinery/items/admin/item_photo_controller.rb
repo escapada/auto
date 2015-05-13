@@ -20,7 +20,18 @@ module Refinery
           # else
           #   render 'new'
           # end
-        end
+        end 
+
+
+        # def add_photo       
+        #     tmp_photo = params[:item_photo]
+            
+        #     @photo = ItemPhoto.new(params[:item_photo])
+        #     @photo.save
+        #     flash[:success] = "Item saved! #{tmp_photo.count  }"
+            
+        #     redirect_to refinery.items_admin_items_path
+        # end
         
       end
     end
