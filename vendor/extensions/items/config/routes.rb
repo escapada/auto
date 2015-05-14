@@ -15,6 +15,7 @@ Refinery::Core::Engine.routes.draw do
       end
       #get 'add_photo', :to => 'item_photo#add_photo', :as => :add_photo
       match 'add_photo', to: 'items#add_photo', :as => :add_photo, via: [:patch, :put, :post]
+      match 'imgs/:id', to: 'items#imgs', :as => :imgs, via: [:get]
     end
   end
 

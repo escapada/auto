@@ -1,0 +1,31 @@
+en:
+  refinery:
+    plugins:
+      items:
+        title: Разбираем
+    items:
+      admin:
+        items:
+          actions:
+            create_new: Добавить
+            reorder: Изменить порядок
+            reorder_done: Порядок сохранён
+          records:
+            title: Разбираем
+            sorry_no_results: К сожалению, ничего не найдено.
+            no_items_yet: Пока нет позиций. Нажмите "Добавить".
+          item:
+            view_live_html: Предпросмотр<br/><em>(в новом окне)</em>
+            edit: Изменить
+            delete: Удалить
+            image_add: Добавить фото
+      items:
+        show:
+          other: Другие позиции
+  activerecord:
+    attributes:
+      'refinery/items/item':
+        model: Модель
+        title: Название
+        meta: Meta
+        description: Инфо

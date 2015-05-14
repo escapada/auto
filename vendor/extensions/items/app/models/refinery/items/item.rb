@@ -5,7 +5,7 @@ module Refinery
       
       attr_accessible :model, :title, :meta, :description, :position#, :photos_attributes
       #has_many :item_photos
-      has_many :photos, :foreign_key => :item_id, :class_name => '::Refinery::Items::ItemPhoto'
+      has_many :photos, :foreign_key => :item_id, :class_name => '::Refinery::Items::ItemPhoto', :dependent => :destroy
       
       #accepts_nested_attributes_for :photos, :allow_destroy => true #, allow_destroy: true
 

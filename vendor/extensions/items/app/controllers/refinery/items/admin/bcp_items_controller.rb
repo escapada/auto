@@ -33,26 +33,28 @@ module Refinery
 				end
 
         def imgs
-          @id = params[:id]
-          @all_photos = ItemPhoto.where(item_id: params[:id])
+          @all_photos = ItemPhoto.where(item_id: params[:item])
           @photo = ItemPhoto.new
           
         end
 
         def add_photo
           #@all_items = Array.new()    #params[:item_photo][:all]  
+          @item = Item.new
+          @photos = ItemPhoto.new
                
-          #@tmp_photo = params[:item_photo]
+          @tmp_photo = params[:item_photo]
           @photo = ItemPhoto.new(params[:item_photo])
-          @photo.item_id = params[:id]
 
-          if @photo.save
-            redirect_to refinery.items_admin_imgs_path(params[:id]), notice: 'Item saved!'
-          else
-            #render 'new'
+          respond_to do |format|
+            if @photo.save
+              #format.html { redirect_to refinery.items_admin_items_path, notice: 'Item saved! #{tmp_photo.count}' }
+              format.js   {}
+              #format.json { render json: @photo, status: :created, location: @photo }
+            else
+              render 'new'
+            end
           end
-
-
         end
 
         def add_photo_

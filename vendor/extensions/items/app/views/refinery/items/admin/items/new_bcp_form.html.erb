@@ -31,6 +31,30 @@
              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @item.model) -%>
 <% end -%>
 
+  <div class="form-actions">
+    <div id="listimgs"></div>
+  </div>
+  <div class="form-actions">
+    <%#= form_for(ItemPhoto.new) do |builder| -%>
+    <%= form_for(@photos, url: refinery.items_admin_add_photo_path, html: { :multipart => true }, remote: true) do |builder| -%>
+    <%#= builder.check_box :main, class: 'ifcheked' %>
+    <%= builder.file_field :image %>
+    <%#= builder.hidden_field :all %>
+    <%= builder.submit 'Добавить фото'%>
+    
+    
+
+<%########################################= check_box_tag "person[admin]", @person.company.admin? %>
+
+    <%# render 'imglist' %>
+    <%#= f.fields_for @photos do |builder| -%>
+    <%#= builder.check_box :main, class: 'ifcheked' %>
+    <%#= builder.file_field :image %>
+    <span id="addimg">add</span>
+
+    <% end %>
+  </div>
+
 <% content_for :javascripts do -%>
   <script>
     $(document).ready(function(){

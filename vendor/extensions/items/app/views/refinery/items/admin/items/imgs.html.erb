@@ -1,0 +1,33 @@
+<div class="form-actions" style="min-height:200px!important;">
+  <div id="listimgs"></div>
+  <% @all_photos.each do |tmp| %>
+  <%= tmp.image_file_name %><br />
+  <% end %>
+</div>
+<div class="form-actions">
+  <%#= form_for(ItemPhoto.new) do |builder| -%>
+  <%= form_for @photo, url: refinery.items_admin_add_photo_path, html: { :multipart => true } do |builder| -%>
+  <%#= builder.check_box :main, class: 'ifcheked' %>
+  <%= builder.file_field :image %>
+  <%= hidden_field_tag 'id', @id %>
+  <%= builder.submit 'Добавить фото'%>
+  
+  
+
+  <%########################################= check_box_tag "person[admin]", @person.company.admin? %>
+
+  <%# render 'imglist' %>
+  <%#= f.fields_for @photos do |builder| -%>
+  <%#= builder.check_box :main, class: 'ifcheked' %>
+  <%#= builder.file_field :image %>
+
+  <% end %>
+</div>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>
