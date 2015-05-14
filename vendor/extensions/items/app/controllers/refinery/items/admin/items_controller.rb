@@ -49,10 +49,17 @@ module Refinery
           if @photo.save
             redirect_to refinery.items_admin_imgs_path(params[:id]), notice: 'Item saved!'
           else
-            #render 'new'
+            redirect_to refinery.items_admin_imgs_path(params[:id]), notice: 'Not saved!'
           end
+        end
 
-
+        def delete_img
+          attach = ItemPhoto.where(id: params[:id])
+          attach.image = nil
+          attach.save
+          respond_to do |format|
+            format.js
+          end
         end
 
         def add_photo_
