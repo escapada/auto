@@ -54,12 +54,24 @@ module Refinery
         end
 
         def delete_img
-          attach = ItemPhoto.where(id: params[:id])
-          attach.image = nil
-          attach.save
-          respond_to do |format|
-            format.js
+          @attach = ItemPhoto.find(params[:id])
+          @attach.image = nil
+          @attach.destroy
+           respond_to do |format|
+             format.js
+           end
+        end
+
+        def main_img
+          @attach = ItemPhoto.find(params[:id])
+          @attachs = ItemPhoto.where(item_id: @attach.item_id)
+          @attachs.each do |a|
+            a.main = false
           end
+          @attach.main = true
+           respond_to do |format|
+             format.js
+           end
         end
 
         def add_photo_

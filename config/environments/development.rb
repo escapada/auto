@@ -38,6 +38,6 @@ Auto::Application.configure do
   config.assets.debug = true
 
   # Paperclip setings
-  #Paperclip.options[:command_path] = "/usr/bin/"   #men at work )))
-  Paperclip.options[:command_path] = "/home/no-body/rubystack-1.9.3-25/common/bin/"   #laptop path
+  Paperclip.options[:command_path] = "/usr/bin/"   #men at work )))
+  #Paperclip.options[:command_path] = "/home/no-body/rubystack-1.9.3-25/common/bin/"   #laptop path
 end

@@ -1,12 +1,21 @@
 <div class="form-actions" style="min-height:200px!important;">
   <div id="listimgs">
     <% @all_photos.each do |tmp| %>
-      <div class="itemthumb"><%=image_tag(tmp.image.url(:thumb))%><br />
-        <%= link_to refinery_icon_tag("delete.png"), refinery.items_admin_delete_img_path(tmp),
-        :class => "cancel confirm-delete",
-        :title => t('.delete'),
-        :remote => true
-        %>
+      <div class="itemthumb" id="<%= dom_id(tmp) -%>"><%=image_tag(tmp.image.url(:thumb))%>
+        <div class="itemthumbactions">
+          <%= link_to refinery_icon_tag("delete.png"), refinery.items_admin_delete_img_path(tmp),
+          :class => "",
+          :remote => true,
+          :method => "post"
+          %>
+          <%unless tmp.main?%>
+          <%= link_to refinery_icon_tag("star.png"), refinery.items_admin_main_img_path(tmp),
+          :class => "",
+          :remote => true,
+          :method => "post"
+          %>
+          <%end%>
+        </div>
       </div>
     <% end %>
   </div>

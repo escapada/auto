@@ -1,0 +1,4 @@
+<% @attachs.each do |attach|
+	unless attach.main? link_to refinery_icon_tag("star.png"), refinery.items_admin_main_img_path(tmp), :class => "", :remote => true, :method => "post"
+end %>
+$('#item_photo_<%=@attach.id%>').hide();
