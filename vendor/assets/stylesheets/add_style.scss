@@ -1,5 +1,7 @@
 #addimg{cursor: pointer;}
-#listimgs{}
-.listimg{ padding: 10px 0;}
+#listimgs{ padding: 10px;}
 .itemthumb{float: left; margin-right: 10px;}
 .itemthumbactions{text-align: center; width: inherit;}
+.itemthumbactions a {border-bottom: none!important;}
+
+#new_item_photo{padding: 10px 0 0 10px;}

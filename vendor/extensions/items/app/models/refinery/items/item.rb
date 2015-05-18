@@ -10,6 +10,7 @@ module Refinery
       #accepts_nested_attributes_for :photos, :allow_destroy => true #, allow_destroy: true
 
       validates :model, :presence => true#, :uniqueness => true
+      validates :title, :presence => true#, :uniqueness => true
 
 
     end

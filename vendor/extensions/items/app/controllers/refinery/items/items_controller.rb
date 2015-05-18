@@ -22,7 +22,11 @@ module Refinery
     protected
 
       def find_all_items
-        @items = Item.order('position ASC')
+        #@items = Item.order('position ASC').includes(:photos).where('item_photos.main = "true"')
+        @items = Item.includes(:photos).order('position ASC').where('item_photos.main = ?', nil)
+        #User.includes(:addresses).where("addresses.country = ?", "Poland")
+        
+        #@photos = ItemPhoto.includes(:item).where('main = ?', true)
       end
 
       def find_page
