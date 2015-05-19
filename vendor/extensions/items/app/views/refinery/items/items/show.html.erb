@@ -1,8 +1,27 @@
 <% content_for :body_content_title do %>
-  <%= @item.model %>
+  <%= @item.title %>
 <% end %>
 
 <% content_for :body do %>
+  <h1>СЕЙЧАС РАЗБИРАЕМ</h1>
+  <div class="item_head">
+    <%=image_tag(@item.model.downcase+'.png', {:height => 48})%>
+    <div class="item_txt">
+        <%= @item.title %>
+    </div>
+  </div>
+  <div id="image_container">
+    <%= image_tag(@item.photos.first.image.url(:big)) %>
+  </div>
+  <div id="prw_container">
+    <%@item.photos.each do |prw_photo|%>
+      <%= image_tag(prw_photo.image.url(:big), {:width => 132}) %>
+    <% end %>
+  </div>  
+
+
+
+
   <section>
     <h1>Model</h1>
     <p>
@@ -30,12 +49,22 @@
 <% end %>
 
 <% content_for :side_body do %>
+  <div id="banner_search">
+    <div class="banner_txt">
+      <span>ПОИСК ЗАПЧАСТЕЙ ПО МАРКЕ АВТОМОБИЛЯ</span>
+    </div>
+  </div>
+
+  <div id="banner_call">
+    <%= image_tag('banner_call.jpg') %>
+  </div>
+
   <aside>
     <h2><%= t('.other') %></h2>
     <ul id="items">
       <% @items.each do |item| %>
         <li>
-          <%= link_to item.model, refinery.items_item_path(item) %>
+          <%= link_to item.title.truncate(15), refinery.items_item_path(item), {:title => "#{item.title}"} %>
         </li>
       <% end %>
     </ul>

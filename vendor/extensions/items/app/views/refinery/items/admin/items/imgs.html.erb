@@ -9,14 +9,22 @@
           :remote => true,
           :method => "post"
           %>
-          <%unless tmp.main?%>
-          <%= link_to refinery_icon_tag("star.png"), refinery.items_admin_main_img_path(tmp),
-          :class => "star",
-          :title => 'Сделать главной',
-          :remote => true,
-          :method => "post"
-          %>
-          <%end%>
+          <% if tmp.main %>
+            <%= link_to refinery_icon_tag("star.png"), refinery.items_admin_main_img_path(tmp),
+            :class => "star",
+            :style => "display:none;",
+            :title => 'Сделать главной',
+            :remote => true,
+            :method => "post"
+            %>
+            <% else %>
+            <%= link_to refinery_icon_tag("star.png"), refinery.items_admin_main_img_path(tmp),
+            :class => "star",
+            :title => 'Сделать главной',
+            :remote => true,
+            :method => "post"
+            %>
+          <% end %>
         </div>
       </div>
     <% end %>

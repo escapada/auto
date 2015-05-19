@@ -1,5 +1,18 @@
 *{margin:0; padding:0; font-size: 12px; font-family: helvetica, arial, sans-serif; list-style-type:none; text-decoration:none;}
 body{}
+
+h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
+
+#page{padding: 30px 0 0 0;}
+#body{width: 620px; float:left;}
+#side_body{float: right; width: 324px;} 
+
+/*home-page wide width. all others two columns*/
+#home-page #body{width: 100%;}
+/**/
+
+.topmargin{margin-top:15px;}
+
 #header100{width: 100%;}
 #header{max-width: 1919px; margin: 0 auto; height: 223px; background: url(header_bg.jpg) no-repeat center; }
 #headertxtline{width:100%; height:40px; background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)";}
@@ -11,6 +24,21 @@ body{}
 
 .wrap{width:974px; margin: 0 auto; padding: 0 15px;}
 
-.item_prw{}
-.item_info{}
-.item_txt{}
+.item_prw{ width:293px; border: #aaa dotted 1px; float: left; margin-bottom:30px;}
+.odd{ margin-right: 30px;}
+.even{ margin-right: 0;}
+.item_info{ height: 70px;}
+.item_info img{ float: left; margin: 5px 5px 0 5px;}
+.items_txt{ line-height: 19px; text-align: center; font-size: 14px; padding:5px 5px 0 0;}
+
+#banner_search{ width: 295px; height: 295px; background: url(banner_bg.jpg) no-repeat; }
+#banner_call{ margin:30px 0 30px 0;}
+.banner_txt{ width:295px; text-align: center; padding:17px 0;}
+.banner_txt span{ font-size: 11px; font-weight: bold; color: #fff;}
+.item_head{ height:70px; border-top: #aaa dotted 1px; border-bottom: #aaa dotted 1px;}
+.item_head img{ float: left; margin: 11px 10px 0 5px;}
+.item_txt{ line-height: 70px; text-align: left; font-size: 14px;}
+
+#image_container{margin-top: 30px;}
+#prw_container{}
+#prw_container img{float: left;}

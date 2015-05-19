@@ -1,24 +1,26 @@
 <% content_for :body do %>
-<h1>СЕЙЧАС РАЗБИРАЕМ</h1>
-<% @items.each do |item| %>
-<div class="item_prw">
-	<% item.photos.each do |photo| %>
-		<%= photo.main ? image_tag(photo.image.url(:thumb)) : "smt" %>
-		<%#= image_tag(photo.image.url(:thumb)) if photo.main %>
-		<%#= image_tag(photo.image.url(:thumb)) if photo.main %>
-
-	<% end %>
-	<%#=image_tag(item.photos.image.url(:thumb))%>
-	<div class="item_info">
-		<%#=image_tag(item.image.url(:main))%>
-		<div class="item_txt">
-
+	<h1>СЕЙЧАС РАЗБИРАЕМ</h1>
+	<div class="topmargin">
+	<% @items.each do |item| %>
+	<div class='<%=cycle("item_prw odd", "item_prw even")%>' >
+		<% item.photos.each do |photo| %>
+			<%= link_to image_tag(photo.image.url(:medium)), refinery.items_item_path(item) if photo.main %>
+		<% end %>
+		<div class="item_info">
+			<%=image_tag(item.model.downcase+'.png')%>
+			<div class="items_txt">
+				<%= item.title %>
+			</div>
 		</div>
 	</div>
-</div>
+	<% end %>
+	</div>
+
 
 <% end %>
-		<%= @items.count%>
+
+<% content_for :side_body do %>
+	<h1>СЕЙЧАС</h1>
 <% end %>
 	
 

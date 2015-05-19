@@ -12,7 +12,7 @@ module Refinery
       end
 
       def show
-        @item = Item.find(params[:id])
+        @item = Item.includes(:photos).find(params[:id])
 
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @item in the line below:
@@ -23,7 +23,7 @@ module Refinery
 
       def find_all_items
         #@items = Item.order('position ASC').includes(:photos).where('item_photos.main = "true"')
-        @items = Item.includes(:photos).order('position ASC').where('item_photos.main = ?', nil)
+        @items = Item.includes(:photos).order('position ASC').where('item_photos.main = ?', true)
         #User.includes(:addresses).where("addresses.country = ?", "Poland")
         
         #@photos = ItemPhoto.includes(:item).where('main = ?', true)
