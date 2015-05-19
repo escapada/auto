@@ -11,41 +11,27 @@
     </div>
   </div>
   <div id="image_container">
-    <%= image_tag(@item.photos.first.image.url(:big)) %>
+    <%= image_tag(@item.photos.first.image.url(:big), {:id => "big_image"}) %>
   </div>
   <div id="prw_container">
-    <%@item.photos.each do |prw_photo|%>
-      <%= image_tag(prw_photo.image.url(:big), {:width => 132}) %>
+    <% @item.photos.first(4).each_with_index do |prw_photo, i| %>
+      <%= image_tag(prw_photo.image.url(:big), {:width => 132, :class => "prw_photo mating"}) if i==0 %>
+      <%= image_tag(prw_photo.image.url(:big), {:width => 132, :class => "prw_photo"}) if (i>0 && i<3) %>
+      <%= image_tag(prw_photo.image.url(:big), {:width => 132, :class => "prw_photo last"}) if i==3 %>
     <% end %>
-  </div>  
+  </div>
+  <div class="clear" style="line-height:35px; border-bottom: #aaa dotted 1px;">&nbsp;</div>  
+  <h2><%= t('.other') %></h2>
+  <%similar = Array.new%>
+  <% @items.each do |item| %>
+    <%similar << item if item.model == @item.model%>
+  <% end %>
+  <% similar.shuffle! %>
+  <% similar.first(2).each do |item| %>
+    <%= link_to item.title.truncate(15), refinery.items_item_path(item), {:title => "#{item.title}"} %>
+  <% end %>
 
 
-
-
-  <section>
-    <h1>Model</h1>
-    <p>
-      <%=raw @item.model %>
-    </p>
-  </section>
-  <section>
-    <h1>Title</h1>
-    <p>
-      <%=raw @item.title %>
-    </p>
-  </section>
-  <section>
-    <h1>Meta</h1>
-    <p>
-      <%=raw @item.meta %>
-    </p>
-  </section>
-  <section>
-    <h1>Description</h1>
-    <p>
-      <%=raw @item.description %>
-    </p>
-  </section>
 <% end %>
 
 <% content_for :side_body do %>
@@ -58,17 +44,6 @@
   <div id="banner_call">
     <%= image_tag('banner_call.jpg') %>
   </div>
-
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="items">
-      <% @items.each do |item| %>
-        <li>
-          <%= link_to item.title.truncate(15), refinery.items_item_path(item), {:title => "#{item.title}"} %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
 <% end %>
 
 <%= render '/refinery/content_page' %>

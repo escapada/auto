@@ -53,3 +53,4 @@ gem 'refinerycms-page-images', '~> 2.1.0'
 gem 'refinerycms-items', :path => 'vendor/extensions'
 
 gem "paperclip", "~> 4.2"
+gem "therubyracer"

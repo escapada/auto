@@ -5,13 +5,13 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 
 #page{padding: 30px 0 0 0;}
 #body{width: 620px; float:left;}
-#side_body{float: right; width: 324px;} 
+#side_body{float: right; width: 324px; padding: 29px 0 0;} 
 
 /*home-page wide width. all others two columns*/
 #home-page #body{width: 100%;}
 /**/
 
-.topmargin{margin-top:15px;}
+.topmargin{margin-top:0;}
 
 #header100{width: 100%;}
 #header{max-width: 1919px; margin: 0 auto; height: 223px; background: url(header_bg.jpg) no-repeat center; }
@@ -39,6 +39,12 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 .item_head img{ float: left; margin: 11px 10px 0 5px;}
 .item_txt{ line-height: 70px; text-align: left; font-size: 14px;}
 
-#image_container{margin-top: 30px;}
-#prw_container{}
-#prw_container img{float: left;}
+#image_container{margin-top: 30px; width:620px; height: 373px;}
+#prw_container{margin-top: 30px;}
+#prw_container img{float: left; cursor: pointer;}
+.prw_photo{margin-right: 30px;}
+.prw_photo.last{margin-right: 0;}
+.mating{background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)";}
+
+
+.clear{clear: both;}
