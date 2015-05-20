@@ -1,31 +1,32 @@
 ru:
   refinery:
     plugins:
-      items:
-        title: Разбираем
-    items:
+      products:
+        title: Детали
+    products:
       admin:
-        items:
+        products:
           actions:
             create_new: Добавить
             reorder: Изменить порядок
             reorder_done: Сохранить порядок
           records:
-            title: Разбираем
+            title: Детали
             sorry_no_results: К сожалению, ничего не найдено.
             no_items_yet: Пока нет позиций. Нажмите "Добавить".
-          item:
+          product:
             view_live_html: Предпросмотр<br/><em>(в новом окне)</em>
             edit: Изменить
             delete: Удалить
             image_add: Добавить фото
-      items:
+      products:
         show:
-          other: Другие позиции
+          other: Другие детали
   activerecord:
     attributes:
-      'refinery/items/item':
-        model: Модель
+      'refinery/products/product':
         title: Название
-        meta: Meta
-        description: Инфо
+        carmodelsubtype_id: Подтип
+        condition: Состояние
+        status: Статус
+        price: Цена

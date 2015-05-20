@@ -54,3 +54,5 @@ gem 'refinerycms-items', :path => 'vendor/extensions'
 
 gem "paperclip", "~> 4.2"
 gem "therubyracer"
+
+gem 'refinerycms-products', :path => 'vendor/extensions'

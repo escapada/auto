@@ -3,6 +3,8 @@ PATH
   specs:
     refinerycms-items (1.0)
       refinerycms-core (~> 2.1.5)
+    refinerycms-products (1.0)
+      refinerycms-core (~> 2.1.5)
 
 GEM
   remote: https://rubygems.org/
@@ -210,6 +212,7 @@ DEPENDENCIES
   refinerycms-acts-as-indexed (~> 1.0.0)
   refinerycms-items!
   refinerycms-page-images (~> 2.1.0)
+  refinerycms-products!
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer

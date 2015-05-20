@@ -22,5 +22,3 @@ Refinery::Core::Engine.routes.draw do
   end
 
 end
-
-# get 'news/more' => 'news::items#view_more', as: :news_view_more

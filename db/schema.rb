@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150422095835) do
+ActiveRecord::Schema.define(:version => 20150520203020) do
+
+  create_table "carmodels", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "carmodelsubtypes", :force => true do |t|
+    t.string   "title"
+    t.integer  "carmodeltype_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "carmodeltypes", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cars", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "item_photos", :force => true do |t|
     t.boolean  "main"
@@ -22,6 +47,16 @@ ActiveRecord::Schema.define(:version => 20150422095835) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "product_photos", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "refinery_image_page_translations", :force => true do |t|
@@ -128,6 +163,17 @@ ActiveRecord::Schema.define(:version => 20150422095835) do
   add_index "refinery_pages", ["lft"], :name => "index_refinery_pages_on_lft"
   add_index "refinery_pages", ["parent_id"], :name => "index_refinery_pages_on_parent_id"
   add_index "refinery_pages", ["rgt"], :name => "index_refinery_pages_on_rgt"
+
+  create_table "refinery_products", :force => true do |t|
+    t.string   "title"
+    t.integer  "carmodelsubtype_id"
+    t.string   "condition"
+    t.string   "status"
+    t.decimal  "price"
+    t.integer  "position"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "refinery_resources", :force => true do |t|
     t.string   "file_mime_type"
