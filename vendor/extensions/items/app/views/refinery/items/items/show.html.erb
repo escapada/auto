@@ -21,15 +21,18 @@
     <% end %>
   </div>
   <div class="clear" style="line-height:35px; border-bottom: #aaa dotted 1px;">&nbsp;</div>  
-  <h2><%= t('.other') %></h2>
-  <%similar = Array.new%>
-  <% @items.each do |item| %>
-    <%similar << item if item.model == @item.model%>
-  <% end %>
-  <% similar.shuffle! %>
-  <% similar.first(2).each do |item| %>
-    <%= link_to item.title.truncate(15), refinery.items_item_path(item), {:title => "#{item.title}"} %>
-  <% end %>
+  <div id="similar">
+    <h2>Похожие автомобили:</h2>
+    <%similar = Array.new%>
+    <% @items.each do |item| %>
+      <%similar << item if item.model == @item.model%>
+    <% end %>
+    <% similar.shuffle! %>
+    <% similar.first(2).each do |item| %>
+      <div class="similar_prw"><%= link_to image_tag(item.photos.first.image.url(:medium), {:width => 216, :title => "#{item.title}"}), refinery.items_item_path(item) %></div>
+      <%#= link_to item.title.truncate(15), refinery.items_item_path(item), {:title => "#{item.title}"} %>
+    <% end %>
+  </div>
 
 
 <% end %>
