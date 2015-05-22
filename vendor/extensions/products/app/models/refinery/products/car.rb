@@ -4,7 +4,7 @@ module Refinery
       self.table_name = 'cars'
 
       attr_accessible					:title
-      has_and_belongs_to_many	:products
+      has_and_belongs_to_many	:products, :class_name => '::Refinery::Products::Product'
       has_many								:carmodels, :class_name => '::Refinery::Products::Carmodel', :dependent => :destroy
 
       #validates :title, :presence => true, :uniqueness => true
