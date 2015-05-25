@@ -4,3 +4,6 @@ $('.prw_photo').click(function() {
 	$('.mating').removeClass("mating");
 	$(this).addClass("mating");
 });
+
+// var car_ids = Array.new;
+// var model_ids

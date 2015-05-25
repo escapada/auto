@@ -5,7 +5,10 @@
 
   <div class='field'>
     Добавить модель<br />
-    <%= select_tag(@cars) %>
+    <%#= select_tag(@cars) %>
+    <%= text_field_tag 'modeltype' -%>
+    <%= f.hidden_field :carmodel_ids -%>
+    <%= f.hidden_field :car_ids -%>
   </div>
 
 
