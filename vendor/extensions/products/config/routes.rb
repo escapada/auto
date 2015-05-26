@@ -14,7 +14,7 @@ Refinery::Core::Engine.routes.draw do
         end
       end
 
-      match 'search', to: 'products#search', :as => :search, via: [:get]
+      match 'search', to: 'products#search', :as => :search, via: [:post]
 
     end
   end

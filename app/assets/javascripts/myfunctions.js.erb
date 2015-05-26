@@ -18,16 +18,22 @@ $('.prw_photo').click(function() {
 // var car_ids = Array.new;
 // var model_ids
 
-$(modeltype).keypress(function (){
-	$.ajax({
-			url: 'search',
-			type: 'GET',
-			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			data: search+'='+$(this).value,
-			//dataType: "json",
-			success: function(tmp){
-				$('#result').text(tmp);
-			}
-		});
 
+////$(function) is the same $(document).ready(function)
+$(function() {
+	$(modeltype).keyup(function (){
+		// alert($(this).val());
+		$.ajax({
+				url: '/admin/search',
+				type: 'POST',
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+				data: 'search='+$(this).val(),
+				//dataType: "json",
+				success: function(tmp){
+					$(listitems).append(tmp);
+				}
+			});
+
+	});
+	
 });

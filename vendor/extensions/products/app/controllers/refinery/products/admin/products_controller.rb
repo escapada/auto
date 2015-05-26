@@ -14,7 +14,12 @@ module Refinery
         end
 
         def search
-          @product = Product.search(params[:search])
+          @products = Product.search(params[:search])
+          @param = params[:search]
+          render :text => @param
+          # respond_to do |format|
+          #   format.js
+          # end
         end
 
       end
