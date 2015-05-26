@@ -13,6 +13,9 @@ Refinery::Core::Engine.routes.draw do
           post :update_positions
         end
       end
+
+      match 'search', to: 'products#search', :as => :search, via: [:get]
+
     end
   end
 

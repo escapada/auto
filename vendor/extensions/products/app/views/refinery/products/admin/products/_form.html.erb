@@ -7,10 +7,26 @@
     Добавить модель<br />
     <%#= select_tag(@cars) %>
     <%= text_field_tag 'modeltype' -%>
-    <%= f.hidden_field :carmodel_ids -%>
-    <%= f.hidden_field :car_ids -%>
+    <span id="add_item">+</span>
+    <div id="tmplistitems">
+    </div>
+    <%#= f.hidden_field :car_ids -%>
   </div>
 
+  <div id="listitems">
+    <% model_ids = [] %>
+    <% @product.carmodels.any? do |model|%>
+      <%model_ids << model.id %>
+      <div class="camodelitem" id="<%= model.id %>">
+        <%= model.title %>
+        <span id="delete_item">-</span>
+      </div>
+    <% end %>
+  </div>
+  
+
+  <%#= f.hidden_field :carmodel_ids -%>
+  <%= f.hidden_field(:carmodel_ids, :value => model_ids) -%>
 
 <!-- ///////////////////////// -->
   <div class='field'>

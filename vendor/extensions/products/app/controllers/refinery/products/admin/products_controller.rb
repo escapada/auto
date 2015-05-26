@@ -13,6 +13,10 @@ module Refinery
         	@cars = Car.includes(:carmodels).find(:all)
         end
 
+        def search
+          @product = Product.search(params[:search])
+        end
+
       end
     end
   end
