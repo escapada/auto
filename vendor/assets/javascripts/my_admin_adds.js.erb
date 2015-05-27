@@ -1,0 +1,40 @@
+//#add_item
+//#delete_item
+//#listitems
+//#tmplistitems
+
+// <div class="camodelitem" id="<%#= model.id %>">
+//  <%#= model.title %>
+//  <span id="delete_item">-</span>
+// </div>
+
+// var car_ids = Array.new;
+// var model_ids
+
+
+////$(function) is the same $(document).ready(function)
+$(function() {
+	$(modeltype).keyup(function (){
+		// alert($(this).val());
+		$.ajax({
+				url: '/admin/search',
+				type: 'POST',
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+				data: 'modelsearch='+$(this).val(),
+				//dataType: "json",
+				// success: function(tmp){
+				// 	console.log(tmp);
+				// 	$(listitems).append(tmp);
+				// }
+		});
+	});
+});
+
+function addmodeltoproduct (id){
+	if($.inArray(id.toString, $(product_carmodel_ids).val()) != -1) {
+    console.log("is in array");
+	} else {
+    	console.log("is NOT in array");
+			$(product_carmodel_ids).val().push(id);
+		} 
+}

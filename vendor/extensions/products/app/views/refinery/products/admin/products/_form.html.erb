@@ -10,10 +10,9 @@
     <span id="add_item">+</span>
     <div id="tmplistitems">
     </div>
-    <%#= f.hidden_field :car_ids -%>
   </div>
 
-  <div id="listitems">
+  <div id="listitems" style="width:300px; height:15px; border:red 1px dashed;">
     <% model_ids = [] %>
     <% @product.carmodels.any? do |model|%>
       <%model_ids << model.id %>
@@ -25,8 +24,9 @@
   </div>
   
 
-  <%#= f.hidden_field :carmodel_ids -%>
-  <%= f.hidden_field(:carmodel_ids, :value => model_ids) -%>
+    <%#= f.hidden_field :car_ids -%>
+    <%#= f.hidden_field :carmodel_ids -%>
+    <%= f.hidden_field(:carmodel_ids, :value => [1,2,3,4,5,6,7,8,9,10]) -%>
 
 <!-- ///////////////////////// -->
   <div class='field'>

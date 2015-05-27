@@ -5,29 +5,3 @@ $('.prw_photo').click(function() {
 	$(this).addClass("mating");
 });
 
-//#add_item
-//#delete_item
-//#listitems
-//#tmplistitems
-
-// <div class="camodelitem" id="<%#= model.id %>">
-//  <%#= model.title %>
-//  <span id="delete_item">-</span>
-// </div>
-
-// var car_ids = Array.new;
-// var model_ids
-
-$(modeltype).keypress(function (){
-	$.ajax({
-			url: 'search',
-			type: 'GET',
-			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			data: search+'='+$(this).value,
-			//dataType: "json",
-			success: function(tmp){
-				$('#result').text(tmp);
-			}
-		});
-
-});

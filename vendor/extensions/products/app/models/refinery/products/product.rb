@@ -13,13 +13,13 @@ module Refinery
 
       validates :title, :presence => true, :uniqueness => true
 
-      def self.search(search)
-        if search
-          where('title LIKE ?', "%#{search}%")
-        else
-          scoped
-        end
-      end
+      # def self.search(search)
+      #   if search
+      #     where('title LIKE ?', "%#{search}%")
+      #   else
+      #     scoped
+      #   end
+      # end
 
     end
   end

@@ -1,0 +1,5 @@
+var txt = '';
+<% @results.each do |element| %>
+ txt += '<div class="add_carmodel_to_product" onclick="addmodeltoproduct(<%=element.id%>)"><%=element.title%><input type="hidden" value="<%=element.id%>"></div>';
+<% end %>
+$(listitems).html(txt);
