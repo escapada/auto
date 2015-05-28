@@ -16,9 +16,11 @@ module Refinery
         def search
           if params[:modelsearch]
             @results = Carmodel.where('title LIKE ?', "%#{params[:modelsearch]}%")
+            @model_type = 'modeltype'
           end
           if params[:subtypesearch]
             @results = Carmodelsubtype.where('title LIKE ?', "%#{params[:subtypesearch]}%")
+            @model_type = 'subtype'
           end
           respond_to do |format|
             format.js

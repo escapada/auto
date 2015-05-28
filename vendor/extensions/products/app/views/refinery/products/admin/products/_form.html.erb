@@ -4,10 +4,10 @@
               :include_object_name => true %>
 
   <div class='field'>
-    Добавить модель<br />
+    <strong>Добавить модель</strong><br />
     <%#= select_tag(@cars) %>
     <%= text_field_tag 'modeltype' -%>
-    <div id="tmplistitems">
+    <div class="tmplistitems">
     </div>
   </div>
 
@@ -20,6 +20,14 @@
         <span class="delete_item" onclick="delete_tmp_item("model", <%= model.id %>)">-</span>
       </div>
     <% end %>
+  </div>
+
+  <div class='field'>
+    <strong>Деталь</strong><br />
+    <%#= select_tag(@cars) %>
+    <%= text_field_tag 'subtype' -%>
+    <div class="tmplistitems">
+    </div>
   </div>
   
 

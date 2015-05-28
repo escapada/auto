@@ -14,18 +14,19 @@
 
 ////$(function) is the same $(document).ready(function)
 $(function() {
+	var modeltype_xy = $(modeltype).position();
+	//var subtype_xy = $(subtype).position();
+	$('#modeltype.tmplistitems').css({"left": modeltype_xy.left, "top": modeltype_xy.top+29});
+	//$(subtype).css({"left": subtype_xy.left, "top": subtype_xy.top+29});
+
 	$(modeltype).keyup(function (){
 		// alert($(this).val());
-		$(tmplistitems).show();
+		$(hidden_helper).show();
+		$('#modeltype.tmplistitems').show();
 		$.ajax({
 				url: '/admin/search',
 				type: 'POST',
-				beforeSend: function(xhr) {
-					xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-					//var model_ids = [1,2];//$.makeArray($('.carmodelitem[data-carmodelid]').val()); //[1,2,3,4,5,6,7,8,9,10]//
-				 	//console.log($.type(model_ids)+"   "+model_ids[0]);
-
-				},
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
 				data: 'modelsearch='+$(this).val(),
 				//dataType: "json",
 				// success: function(tmp){
@@ -34,5 +35,10 @@ $(function() {
 				// }
 		});
 	});
-	//$(modeltype).focusout($(tmplistitems).hide());
+	$(hidden_helper).click(function(){
+		$(modeltype).val('');
+		$('.tmplistitems').hide();
+		$(this).toggle();
+	});
+
 });
