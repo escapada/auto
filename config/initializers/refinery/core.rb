@@ -39,7 +39,7 @@ Refinery::Core.configure do |config|
 
   # Register extra javascript for backend
   # config.register_javascript "prototype-rails"
-  config.register_javascript "my_admin_adds"
+  #config.register_javascript "my_admin_adds"
 
   # Register extra stylesheet for backend (optional options)
   config.register_stylesheet "add_style", :media => 'screen'
