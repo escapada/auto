@@ -13,6 +13,29 @@ module Refinery
         	@cars = Car.includes(:carmodels).find(:all)
         end
 
+        def create
+          @product = Product.new(params[:product])#.except(:item_photo))
+          
+          if @product.save
+            flash[:success] = "Item saved!"
+            redirect_to refinery.products_admin_products_path
+          else
+            render 'new'
+          end
+        end
+
+        def update
+          params[:product][:carmodel_ids] ||= []
+          @product = Product.new(params[:product])#.except(:item_photo))
+          
+          if @product.save
+            flash[:success] = "Item saved!"
+            redirect_to refinery.products_admin_products_path
+          else
+            render 'new'
+          end
+        end
+
         def search
           if params[:modelsearch]
             @results = Carmodel.where('title LIKE ?', "%#{params[:modelsearch]}%")

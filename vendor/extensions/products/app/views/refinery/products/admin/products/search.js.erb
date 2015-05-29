@@ -1,47 +1,6 @@
 var txt = '';
 <% @results.each do |element| %>
- txt += '<div class="add_carmodel_to_product" onclick="addmodeltoproduct(\'<%=@model_type%>\', <%=element.id%>, \'<%= element.title %>\')"><%=element.title%><input type="hidden" value="<%=element.id%>"></div>';
+ txt += '<div class="add_carmodel_to_product" onclick="addmodeltoproduct(\'<%=@model_type%>\', <%=element.id%>, \'<%= element.title %>\')"><%=element.title%></div>';
 <% end %>
-$('#<%=@model_type%>.tmplistitems').html(txt);
+$('#<%=@model_type%> + .tmplistitems').html(txt);
 
-var model_ids = $.makeArray($(".carmodelitem[data-carmodelid]").map(function(){return $(this).attr("data-carmodelid")}));//[1,2,3,4,5,6,7,8,9,10]//
-var subtype_ids = $.makeArray($(".subtipeitem[data-subtypeid]").map(function(){return $(this).attr("data-subtypeid")}));
-console.log(model_ids.toString());
-
-function addmodeltoproduct (model_type, id, title){
-	if (model_type == 'modeltype') {
-		if($.inArray(id.toString(), model_ids) != -1) {
-	    console.log("is in array");
-		} else {
-				model_ids.push(id);
-				$(product_carmodel_ids).val('['+model_ids.toString()+']');
-
-				$('.tmplistitems').hide();
-				$(modeltype).val('')
-
-				$(listitems).append("<div class='carmodelitem' data-carmodelid=\""+id+"\">"+title+"<span class='delete_item' onclick='delete_tmp_item(\"model\", "+id+")'>-</span></div>");
-	    		
-	    		console.log("is NOT in array  "+model_ids.toString());
-				//alert($(product_carmodel_ids).val());
-
-			} 
-	};
-	if (model_type == 'subtype') {};
-
-}
-
-function delete_tmp_item (model_type, id){
-	if (model_type == 'modeltype') {
-		var obj = $(".carmodelitem[data-carmodelid='"+id+"']");
-		var index = model_ids.indexOf(id);
-		model_ids.splice(index, 1);
-		$(product_carmodel_ids).val('['+model_ids.toString()+']');
-
-    console.log(index+'  '+model_ids.toString());
-
-    obj.remove();
-
-
-	};
-	if (model_type == 'subtype') {};
-}

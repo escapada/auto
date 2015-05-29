@@ -12,14 +12,15 @@
   </div>
 
   <div id="listitems">
-    <%# model_ids = [] %>
-    <% @product.carmodels.any? do |model|%>
-      <#%model_ids << model.id %>
+    <% model_ids = Array.new() %>
+    <% @product.carmodels.each do |model|%>
       <div class="carmodelitem" data-carmodelid="<%= model.id %>">
         <%= model.title %>
-        <span class="delete_item" onclick="delete_tmp_item("model", <%= model.id %>)">-</span>
+        <span class="delete_item" onclick="delete_tmp_item('modeltype', <%= model.id %>)">-</span>
       </div>
+      <% model_ids << model.id %>
     <% end %>
+    <%= f.hidden_field(:carmodel_ids) -%>
   </div>
 
   <div class='field'>
@@ -29,31 +30,34 @@
     <div class="tmplistitems">
     </div>
   </div>
-  
 
-    <%#= f.hidden_field :car_ids -%>
-    <%#= f.hidden_field :carmodel_ids -%>
-    <%= f.hidden_field(:carmodel_ids) -%>
+  <div id="listitems_sub">
+    <%# model_ids = [] %>
+    <% if @product.carmodelsubtype.present? %>
+      <div class="subtypeitem" data-subtypeid="<%= @product.carmodelsubtype.id %>">
+        <%= @product.carmodelsubtype.title %>
+        <span class="delete_item" onclick="delete_tmp_item('subtype', <%= @product.carmodelsubtype.id %>)" >-</span>
+      </div>
+      <%= f.hidden_field(:carmodelsubtype_id) -%>
+    <% else %>
+      <%= f.hidden_field(:carmodelsubtype_id, :value => "") -%>
+    <% end %>
+  </div>
 
 <!-- ///////////////////////// -->
   <div class='field'>
     <%= f.label :title -%>
-    <%= f.text_field :title, :class => 'larger widest' -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :carmodelsubtype_id -%>
-    <%= f.number_field :carmodelsubtype_id -%>
+    <%= f.text_field :title -%>
   </div>
 
   <div class='field'>
     <%= f.label :condition -%>
-    <%= f.text_field :condition -%>
+    <%= f.select(:condition, ["Плохое","Среднее","Отличное"]) -%>
   </div>
 
   <div class='field'>
     <%= f.label :status -%>
-    <%= f.text_field :status -%>
+    <%= f.select(:status, ["Отсутствует","На складе"]) -%>
   </div>
 
   <div class='field'>
@@ -66,3 +70,7 @@
              :delete_title => t('delete', :scope => 'refinery.products.admin.products.product'),
              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @product.title) -%>
 <% end -%>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'admin_products' %>
+<% end %>

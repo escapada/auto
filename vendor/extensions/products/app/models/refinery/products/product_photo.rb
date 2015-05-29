@@ -6,7 +6,7 @@ module Refinery
 
       attr_accessible			:title, :image, :product_id
   		has_attached_file		:image, :styles => { :thumb => "100x100/#>", :big => "620x373/#" }, :default_url => "/images/:style/missing.png"#, :processors => [:watermark]
-  		belongs_to					:product, :foreign_key => :product_id, :class_name => 'Refinery::Products::Product', :dependent => :destroy
+  		belongs_to					:product, :foreign_key => :product_id, :class_name => '::Refinery::Products::Product', :dependent => :destroy
 
   		validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
       #validates :title, :presence => true, :uniqueness => true

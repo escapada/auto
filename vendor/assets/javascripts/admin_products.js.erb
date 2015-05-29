@@ -14,20 +14,25 @@
 
 ////$(function) is the same $(document).ready(function)
 $(function() {
+	//$(product_carmodel_ids).val('[]');
+	// if (!$('#subtypeitem[data-subtipeid]')) {
+	// 	$(product_carmodelsubtype_id).val('');
+	// };
+
 	var modeltype_xy = $(modeltype).position();
-	//var subtype_xy = $(subtype).position();
-	$('#modeltype.tmplistitems').css({"left": modeltype_xy.left, "top": modeltype_xy.top+29});
-	//$(subtype).css({"left": subtype_xy.left, "top": subtype_xy.top+29});
+	var subtype_xy = $(subtype).position();
+	$('#modeltype + .tmplistitems').css({"left": modeltype_xy.left, "top": modeltype_xy.top+29});
+	$(subtype).css({"left": subtype_xy.left, "top": subtype_xy.top+29});
 
 	$(modeltype).keyup(function (){
 		// alert($(this).val());
 		$(hidden_helper).show();
-		$('#modeltype.tmplistitems').show();
+		$('#modeltype + .tmplistitems').show();
 		$.ajax({
 				url: '/admin/search',
 				type: 'POST',
 				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
-				data: 'modelsearch='+$(this).val(),
+				data: 'modelsearch='+$(this).val()
 				//dataType: "json",
 				// success: function(tmp){
 				// 	console.log(tmp);
@@ -35,10 +40,87 @@ $(function() {
 				// }
 		});
 	});
+
+	$(subtype).keyup(function (){
+		$(hidden_helper).show();
+		$('#subtype + .tmplistitems').show();
+		$.ajax({
+				url: '/admin/search',
+				type: 'POST',
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+				data: 'subtypesearch='+$(this).val()
+		});
+	});
+
+
 	$(hidden_helper).click(function(){
 		$(modeltype).val('');
+		$(subtype).val('');
 		$('.tmplistitems').hide();
 		$(this).toggle();
 	});
 
+
+
 });
+	
+
+	function addmodeltoproduct (model_type, id, title){
+		var model_ids = $.makeArray($(".carmodelitem[data-carmodelid]").map(function(){return $(this).attr("data-carmodelid")}));//[1,2,3,4,5,6,7,8,9,10]//
+		var subtype_id = $(".subtypeitem[data-subtypeid]").attr("data-subtypeid");
+		console.log(model_ids.toString());
+
+		if (model_type == 'modeltype') {
+			if($.inArray(id.toString(), model_ids) != -1) {
+		    console.log("is in array");
+			} else {
+					model_ids.push(id);
+					$(product_carmodel_ids).val('['+model_ids.toString()+']');
+					//$(product_carmodel_ids).val("[3, 4]");
+
+
+					$('.tmplistitems').hide();
+					$(hidden_helper).hide();
+					$(modeltype).val('');
+
+					$(listitems).append("<div class='carmodelitem' data-carmodelid=\""+id+"\">"+title+"<span class='delete_item' onclick='delete_tmp_item(\"modeltype\", "+id+")'>-</span></div>");
+		    		
+		    	console.log("is NOT in array  "+model_ids.toString());
+
+				};
+		};
+		if (model_type == 'subtype') {
+			$(product_carmodelsubtype_id).val(id);		//val('['+subtype_ids.toString()+']');
+			$('#listitems_sub > div').remove();
+			$('.tmplistitems').hide();
+			$(hidden_helper).hide();
+			$(subtype).val('');
+
+			$(listitems_sub).append("<div class='subtypeitem' data-subtypeid=\""+id+"\">"+title+"<span class='delete_item' onclick='delete_tmp_item(\"subtype\", "+id+")'>-</span></div>");
+		};
+	};
+
+	function delete_tmp_item (model_type, id){
+		var model_ids = $.makeArray($(".carmodelitem[data-carmodelid]").map(function(){return $(this).attr("data-carmodelid")}));//[1,2,3,4,5,6,7,8,9,10]//
+		var subtype_id = $(".subtypeitem[data-subtypeid]").attr("data-subtypeid");
+		console.log(model_ids.toString());
+
+		if (model_type == 'modeltype') {
+			var obj = $(".carmodelitem[data-carmodelid='"+id+"']");
+			var index = model_ids.indexOf(id);
+			model_ids.splice(index, 1);
+			$(product_carmodel_ids).val('['+model_ids.toString()+']');
+			//$(product_carmodel_ids).val(model_ids);
+
+	    console.log(index+'  '+model_ids.toString());
+
+	    obj.remove();
+		};
+		if (model_type == 'subtype') {
+			var obj = $(".subtypeitem[data-subtypeid='"+subtype_id+"']");
+			console.log('TYPE OF OBJ  '+subtype_id);
+			$(product_carmodelsubtype_id).val('');
+			
+	    obj.remove();
+		};
+	};

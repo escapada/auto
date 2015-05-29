@@ -1,4 +1,3 @@
-
 module Refinery
   module Products
     class Carmodelsubtype < Refinery::Core::BaseModel
