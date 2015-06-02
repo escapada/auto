@@ -1,11 +1,46 @@
 <% content_for :body do %>
-  <ul id="products">
-    <% @products.each do |product| %>
-      <li>
-        <%= link_to product.title, refinery.products_product_path(product) %>
-      </li>
-    <% end %>
-  </ul>
+
+<% if @skip %>
+
+	<div id="breadcrumbs"><%= @breadcrumbs if @breadcrumbs.present? %></div>
+	<div class="head_product">
+		<div><%=image_tag(@car_name.downcase+'.png')%></div>
+		<h1><%= @car_name.upcase %> <%= @model_name.upcase %></h1>
+	</div>
+	  <div id="tree">
+	  	<% @types.each do |type| %>
+	  		<div class="tree_type">
+	  			<div class="tree_typename_wrap">
+		  			<div class="tree_plus">
+		  				<span>+</span>
+		  			</div>
+		  			<div class="tree_typename">
+		  				<%= type.title %>
+		  			</div>
+		  		</div>
+	  			<div class="tree_subtype">
+	  				<ul>
+	  					<% type.carmodelsubtypes.each do |subtype| %>
+		  					<% if subtype.products.any? %>
+		  						<li class="subtype_li"><%= link_to subtype.title, refinery.products_filter_path(:model => @model_id, :subtype => subtype.id), :remote => true, :method => "post" %></li>
+		  					<% end %>
+	  					<% end %>
+	  				</ul>
+	  			</div>
+	  		</div>
+	  	<% end %>
+	  </div>
+	  <div id="showproducts">
+	  </div>
+	  <div class="clear"></div>
+
+<% else %>
+
+<%= render 'carsearch' %>
+
+<% end %>
+
+
 <% end %>
 
 <%= render '/refinery/content_page' %>

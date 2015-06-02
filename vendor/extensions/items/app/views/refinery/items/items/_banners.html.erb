@@ -1,0 +1,14 @@
+<div id="banner_search">
+  <div class="banner_txt">
+    <span>ПОИСК ЗАПЧАСТЕЙ ПО МАРКЕ АВТОМОБИЛЯ</span>
+  </div>
+  <div class="car_sign_wrap">
+    <%['vw','audi','skoda','seat'].each do |car|%>
+      <div class="car_sign"><%= link_to image_tag(car+'.png', :width => ''), refinery.products_products_path %></div>
+    <% end %>
+  </div>
+</div>
+
+<div id="banner_call">
+  <%= image_tag('banner_call.jpg') %>
+</div>

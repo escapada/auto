@@ -1,7 +1,6 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(product) -%>">
   <span class='title'>
-    <%= product.title %>
-
+    <strong><%= product.title %></strong>&nbsp;(<%= product.carmodelsubtype.carmodeltype.title %> / <%= product.carmodelsubtype.title %>)
   </span>
   <span class='actions'>
     
@@ -9,6 +8,9 @@
         :title => t('.view_live_html'),
         :target => "_blank" %>
     
+
+    <%= link_to refinery_icon_tag("image_add.png"), refinery.products_admin_imgs_path(product),
+        :title => t('.image_add') %>
     <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_products_admin_product_path(product),
          :title => t('.edit') %>
     <%= link_to refinery_icon_tag("delete.png"), refinery.products_admin_product_path(product),

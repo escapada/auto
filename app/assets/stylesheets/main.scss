@@ -9,12 +9,13 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 
 /*home-page wide width. all others two columns*/
 #home-page #body{width: 100%;}
+#products-page #body{width: 100%;}
 /**/
 
 .topmargin{margin-top:0;}
 
 #header100{width: 100%;}
-#header{max-width: 1919px; margin: 0 auto; height: 223px; background: url(header_bg.jpg) no-repeat center; }
+#header{max-width: 1919px; margin: 0 auto; height: 199px; background: url(header_bg.jpg) no-repeat center; }
 #headertxtline{width:100%; height:40px; background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)";}
 #leftinfo{width:30%; height:100%; line-height: 40px; text-align: left; float: left;}
 #rightinfo{width:70%; height:100%; line-height: 40px; text-align: right; float: right;}
@@ -24,7 +25,7 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 
 .wrap{width:974px; margin: 0 auto; padding: 0 15px;}
 
-#footer{ border-top: #aaa dotted 1px; padding: 15px 0;}
+#footer{ border-top: #aaa dotted 1px; padding: 15px 0; margin:20px 0 0;}
 
 .item_prw{ width:293px; border: #aaa dotted 1px; float: left; margin-bottom:30px;}
 .odd{ margin-right: 30px;}
@@ -51,5 +52,58 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 #similar h2{float:left; margin:0; width: 128px; font-weight: normal;}
 .similar_prw{float:right; margin-left: 30px;  width: 216px;}
 
+/*///////////////part of car names search block on first and search pages. + tree view*/
+#carsearch{}
+
+#tree{ float: left; margin-left: 100px; clear: both;}
+#tree a{color: #000;}
+.tree_type{clear: both; cursor: pointer;}
+.tree_typename_wrap{ margin-bottom: 1px;}
+.tree_plus{width:15px; height:15px; border: 1px dotted #aaa; color: #aaa; float: left; line-height: 14px; text-align: center;}
+.tree_typename{text-align: left; margin: 0 0 0 10px; display: inline;}
+.tree_subtype{ clear: both; background: url(lftdotted.png) repeat-y left; padding-left: 34px; display:none;}
+.subtype_li{cursor: pointer;}
+
+.head_product{ width: 100%;}
+.head_product div{float:left; width: 81px; text-align: center;}
+.head_product h1{line-height: 58px; display: inline; margin-left: 20px;}
+
+/*////////////display products block*/
+#showproducts{float: right;}
+#showproducts h2{ font-size: 20px; margin-bottom: 20px;}
+.description_block{width: 540px; border: 1px dotted #aaa; margin-bottom: 20px;}
+.descr_div_top{ height: 170px; clear: both;}
+.img_div{ text-align: center; height: 170px; width: 210px; float:left;}
+.img_div img{ margin-top: 20px;}
+.descr_div{ width: 327px; height: inherit; border-left: 1px dotted #aaa; float: right;}
+.descr_table{ margin: 15px 0 0 27px;}
+.descr_table tr{line-height: 24px;}
+.descr_table td{font-size: 14px;}
+.descr_table .bold{ font-weight: bold; width: 135px;}
+.descr_div_bottom{ height: 60px; clear: both;}
+.descr_more{ height: 60px; text-align: center; line-height: 60px; width: 210px; float: left;}
+.descr_price{ height: 60px; width: 327px; border-left: 1px dotted #aaa; text-align: center; float: right;}
+.descr_price div{ width:277px; height:41px; margin: 0 auto; line-height:41px; background: url(price_bg.jpg) no-repeat; font-weight: bold; font-size: 18px;}
+.descr_head{ height: 41px; line-height: 41px; background: #eee; text-align: center; font-size: 16px; font-weight: bold; border-bottom: 1px dotted #aaa;}
+
+/*////////////display searchcar block (main and products pages)*/
+#carsearch{width: 620px; float:left;}
+#carsearch h1{margin-bottom: 20px;}
+#carsearch-right{float: right; width: 324px;}
+.column{ width:154px; min-height: 380px; float: left; border-right: 1px dotted #aaa;} 
+.column.last{ border:none;} 
+.column ul{ padding: 0 20px 20px 20px; margin-top: 20px;} 
+.column ul li{ margin-bottom: 3px;} 
+.column ul a{color: #000; } 
+.car_img{width: inherit; text-align: center;} 
+
+#examples{ display:inline-block; border-top: 1px dotted #aaa; padding: 20px 0 0 15px; }
+.random_prw{ float: left; margin:0 20px 20px 0;}
+.random_prw.last{ float: left; margin-right:0!important;}
 
 .clear{clear: both;}
+
+/*////////////styles front-end pages plus...*/
+.separator{clear: both; border-bottom: 1px dotted #aaa; height:20px; width: 100%; display: block; margin-bottom: 20px;}
+.car_sign_wrap{ margin: 25px 0 0 55px;}
+.car_sign{float:left; margin: 0 40px 40px 0;}

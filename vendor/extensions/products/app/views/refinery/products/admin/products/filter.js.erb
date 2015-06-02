@@ -1,0 +1,5 @@
+<% @products.each do |item| %>
+<%= item.title %>
+<% end %>
+$("#tmpinfo").text(<% @products.each do |item| %> <%= item.title %> <% end %>);
+

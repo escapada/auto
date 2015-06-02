@@ -1,0 +1,31 @@
+<div class="form-actions" style="min-height:200px!important;">
+  <div id="listimgs">
+    <% @all_photos.each do |tmp| %>
+      <div class="itemthumb" id="<%= dom_id(tmp) -%>"><%=image_tag(tmp.image.url(:thumb))%>
+        <div class="itemthumbactions">
+          <%= link_to refinery_icon_tag("delete.png"), refinery.products_admin_delete_img_path(tmp),
+          :class => "",
+          :title => 'Удалить фото',
+          :remote => true,
+          :method => "post"
+          %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="form-actions">
+  <%= form_for @photo, url: refinery.products_admin_add_photo_path, html: { :multipart => true } do |builder| -%>
+  <%= builder.file_field :image %>
+  <%= hidden_field_tag 'id', @id %>
+  <%= builder.submit 'Добавить фото'%>
+  <% end %>
+</div>
+  
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>

@@ -1,17 +1,3 @@
-//#add_item
-//#delete_item
-//#listitems
-//#tmplistitems
-
-// <div class="camodelitem" id="<%#= model.id %>">
-//  <%#= model.title %>
-//  <span id="delete_item">-</span>
-// </div>
-
-// var car_ids = Array.new;
-// var model_ids
-
-
 ////$(function) is the same $(document).ready(function)
 $(function() {
 	//$(product_carmodel_ids).val('[]');
@@ -75,9 +61,8 @@ $(function() {
 		    console.log("is in array");
 			} else {
 					model_ids.push(id);
-					$(product_carmodel_ids).val('['+model_ids.toString()+']');
+					$(product_carmodel_ids).val(model_ids);//('['+model_ids.toString()+']');
 					//$(product_carmodel_ids).val("[3, 4]");
-
 
 					$('.tmplistitems').hide();
 					$(hidden_helper).hide();
@@ -107,9 +92,9 @@ $(function() {
 
 		if (model_type == 'modeltype') {
 			var obj = $(".carmodelitem[data-carmodelid='"+id+"']");
-			var index = model_ids.indexOf(id);
+			var index = model_ids.indexOf(id.toString());
 			model_ids.splice(index, 1);
-			$(product_carmodel_ids).val('['+model_ids.toString()+']');
+			$(product_carmodel_ids).val(model_ids);//('['+model_ids.toString()+']');
 			//$(product_carmodel_ids).val(model_ids);
 
 	    console.log(index+'  '+model_ids.toString());

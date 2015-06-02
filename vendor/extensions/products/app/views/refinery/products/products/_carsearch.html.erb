@@ -1,0 +1,50 @@
+<div id="carsearch">
+<h1>ПОИСК ЗАПЧАСТЕЙ ПО МАРКЕ АВТОМОБИЛЯ</h1>
+	<div class="column">
+		<div class="car_img">
+			<%= image_tag(@vw.first.car.title.downcase+'.png')%>
+		</div>
+		<ul>
+			<% @vw.each do |name| %><li><%= link_to name.title, refinery.products_modelid_path(:search => name.id), :method => "post" %></li><% end %>
+		</ul>
+	</div>
+	<div class="column">
+		<div class="car_img">
+			<%= image_tag(@audi.first.car.title.downcase+'.png')%>
+		</div>
+		<ul>
+			<% @audi.each do |name| %><li><%= link_to name.title, refinery.products_modelid_path(:search => name.id), :method => "post" %></li><% end %>
+		</ul>
+	</div>
+	<div class="column">
+		<div class="car_img">
+			<%= image_tag(@skoda.first.car.title.downcase+'.png')%>
+		</div>
+		<ul>
+			<% @skoda.each do |name| %><li><%= link_to name.title, refinery.products_modelid_path(:search => name.id), :method => "post" %></li><% end %>
+		</ul>
+	</div>
+	<div class="column last">
+		<div class="car_img">
+			<%= image_tag(@seat.first.car.title.downcase+'.png')%>
+		</div>
+		<ul>
+			<% @seat.each do |name| %><li><%= link_to name.title, refinery.products_modelid_path(:search => name.id), :method => "post" %></li><% end %>
+		</ul>
+	</div>
+
+</div>
+<div id="carsearch-right">
+	<div id="banner_engine">
+    <%= image_tag('banner_engine.jpg') %>
+  </div>
+</div>
+<div class="clear" style="margin-bottom:15px;"></div>
+
+<div id="examples">
+  <% @items.first(8).each_with_index do |prw_photo, i| %>
+    <% [3,7].include?(i) ? cl="last" : "" %>
+    <div class="random_prw <%= cl %>"><%= link_to image_tag(prw_photo.photos.first.image.url(:medium), {:width => 221, :title => "#{prw_photo.title}"}), refinery.items_item_path(prw_photo) %></div>
+  <% end %>
+	
+</div>

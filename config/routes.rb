@@ -14,6 +14,7 @@ Refinery::Core::Engine.routes.prepend do
   # end
 #get 'news/more' => 'news::items#view_more', as: :news_view_more
 #match 'add_photo', to: 'items.items#add_photo', :as => :add_photo, via: [:put, :post]
+#match 'search', to: 'products#search', :as => :search, via: [:post]
 
 end
 Auto::Application.routes.draw do

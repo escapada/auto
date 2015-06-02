@@ -1,7 +1,24 @@
-$('.prw_photo').click(function() {
-	var src = $(this).prop("src");
-	$(big_image).prop("src", src);
-	$('.mating').removeClass("mating");
-	$(this).addClass("mating");
-});
+//at fist. check if the object/objects exist (not "undefined") // not "have to" I guess
+if (typeof $('.prw_photo') != "undefined") {
+	$('.prw_photo').click(function() {
+		var src = $(this).prop("src");
+		$(big_image).prop("src", src);
+		$('.mating').removeClass("mating");
+		$(this).addClass("mating");
+	});
+}
+
+if (typeof $('#tree') != "undefined") {
+	$('.tree_typename_wrap').click(function() {
+		//$('.tree_subtype', this).toggle();
+		$(this).next().toggle();
+		if ($('.tree_plus span', this).text() == '+') {
+			$('.tree_plus span', this).text('-');
+		} else{
+			$('.tree_plus span', this).text('+');
+		};
+
+	});
+}
+
 

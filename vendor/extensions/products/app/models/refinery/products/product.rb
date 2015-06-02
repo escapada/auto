@@ -12,7 +12,20 @@ module Refinery
       belongs_to 							:carmodelsubtype, :class_name => '::Refinery::Products::Carmodelsubtype'
 
       validates :title, :presence => true, :uniqueness => true
+      validates :carmodel_ids, :presence => true
+      validates :carmodelsubtype_id, :presence => true
 
+      # def self.search(search)
+      #   case search
+      #   when search[:carmodel_id]
+      #     tmp = self.includes(:carmodels).all
+      #     tmp.each do |variable|
+            
+      #     end
+      #   else
+      #     scoped
+      #   end
+      # end
       # def self.search(search)
       #   if search
       #     where('title LIKE ?', "%#{search}%")

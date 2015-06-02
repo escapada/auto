@@ -1,0 +1,35 @@
+//alert("aanjasnlasnl");
+$("#showproducts").html('');
+
+<% @products.each do |product| %>
+<%product.photos.any? ?  photopath=product.photos.first.image.url(:thumb) : photopath=@car_name.downcase+'.png' %>
+alert('<%= photopath %>');
+
+html =	"<h2><%= j product.carmodelsubtype.title %></h2>"+
+	"<div class='description_block'>"+
+		"<div class='descr_div_top'>"+
+			"<div class='img_div'>"+
+				"<%= j image_tag(photopath)%>"+
+			"</div>"+
+			"<div class='descr_div'>"+
+				"<div class='descr_head'><%= j product.carmodelsubtype.title %> <%= j product.carmodels.first.car.title %> <%= j product.carmodels.first.title %></div>"+
+				"<table class='descr_table' border='0' cellpadding='0' cellspacing='0' width='280'>"+
+					"<tr><td class='bold'>Производитьель:</td><td><%= j product.carmodels.first.car.title %></td></tr>"+
+					"<tr><td class='bold'>Описание:</td><td><span><%= j product.title %></span></td></tr>"+
+					"<tr><td class='bold'>Состояние:</td><td><span><%= j product.condition %></span></td></tr>"+
+					"<tr><td class='bold'>Наличие:</td><td><span><%= j product.status %></td></span></tr>"+
+				"</table>"+
+			"</div>"+
+		"</div>"+
+		"<div class='descr_div_bottom'>"+
+			"<div class='descr_more'>"+
+				"<%= j link_to image_tag('more.jpg'), refinery.products_product_path(product), :remote => true %>"+
+			"</div>"+
+			"<div class='descr_price'>"+
+				"<div><%= product.price %> рублей</div>"+
+			"</div>"+
+		"</div>"+
+	"</div>";
+$("#showproducts").append(html);
+<% end %>
+

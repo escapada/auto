@@ -16,24 +16,10 @@
 	<% end %>
 	</div>
 
-
 <% end %>
 
 <% content_for :side_body do %>
-  <div id="banner_search">
-    <div class="banner_txt">
-      <span>ПОИСК ЗАПЧАСТЕЙ ПО МАРКЕ АВТОМОБИЛЯ</span>
-    </div>
-  </div>
-
-  <div id="banner_call">
-    <%= image_tag('banner_call.jpg') %>
-  </div>
+  <%= render 'banners' %>
 <% end %>
-	
-
-
-	<%#= link_to item.title, refinery.items_item_path(item) %>
-        <%#= link_to item.title, refinery.items_item_path(item) %>
 
 <%= render '/refinery/content_page' %>

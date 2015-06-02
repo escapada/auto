@@ -1,9 +1,9 @@
 <ul>
-  <% if ::Refinery::Products::Admin::ProductsController.searchable? %>
-    <li>
-      <%= render '/refinery/admin/search', :url => refinery.products_admin_products_path %>
-    </li>
-  <% end %>
+  <%# if ::Refinery::Products::Admin::ProductsController.searchable? %>
+    <!-- <li> -->
+      <%#= render '/refinery/admin/search', :url => refinery.products_admin_products_path %>
+    <!-- </li> -->
+  <%# end %>
   <li>
     <%= link_to t('.create_new'), refinery.new_products_admin_product_path,
                  :class => "add_icon" %>

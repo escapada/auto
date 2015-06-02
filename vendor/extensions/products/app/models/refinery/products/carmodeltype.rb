@@ -4,7 +4,7 @@ module Refinery
       self.table_name = 'carmodeltypes'
 
       attr_accessible					:title
-      has_many 								:carmodelsubtypes, :class_name => '::Refinery::Products::Carmodelsubtype', :dependent => :destroy
+      has_many							:carmodelsubtypes, :class_name => '::Refinery::Products::Carmodelsubtype', :dependent => :destroy
 
       #validates :title, :presence => true, :uniqueness => true
     end

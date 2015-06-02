@@ -12,27 +12,25 @@
   </div>
 
   <div id="listitems">
-    <% model_ids = Array.new() %>
+    <%# model_ids = Array.new() %>
     <% @product.carmodels.each do |model|%>
       <div class="carmodelitem" data-carmodelid="<%= model.id %>">
         <%= model.title %>
         <span class="delete_item" onclick="delete_tmp_item('modeltype', <%= model.id %>)">-</span>
       </div>
-      <% model_ids << model.id %>
+      <%# model_ids << model.id %>
     <% end %>
     <%= f.hidden_field(:carmodel_ids) -%>
   </div>
 
   <div class='field'>
-    <strong>Деталь</strong><br />
-    <%#= select_tag(@cars) %>
+    <strong>Тип детали</strong><br />
     <%= text_field_tag 'subtype' -%>
     <div class="tmplistitems">
     </div>
   </div>
 
   <div id="listitems_sub">
-    <%# model_ids = [] %>
     <% if @product.carmodelsubtype.present? %>
       <div class="subtypeitem" data-subtypeid="<%= @product.carmodelsubtype.id %>">
         <%= @product.carmodelsubtype.title %>

@@ -3,6 +3,8 @@ Refinery::Core::Engine.routes.draw do
   # Frontend routes
   namespace :products do
     resources :products, :path => '', :only => [:index, :show]
+    match 'search', to: 'products#search', :as => :filter, via: [:post]
+    match '/', to: 'products#index', :as => :modelid, via: [:post]
   end
 
   # Admin routes
@@ -15,6 +17,11 @@ Refinery::Core::Engine.routes.draw do
       end
 
       match 'search', to: 'products#search', :as => :search, via: [:post]
+      #match 'filter', to: 'products#filter', :as => :filter, via: [:post]
+      match 'product_add_photo', to: 'products#add_photo', :as => :add_photo, via: [:patch, :put, :post]
+      match 'product_imgs/:id', to: 'products#imgs', :as => :imgs, via: [:get]
+      match 'product_delete_img/:id', to: 'products#delete_img', :as => :delete_img, via: [:post]
+      #match 'main_img/:id', to: 'products#main_img', :as => :main_img, via: [:post]
 
     end
   end
