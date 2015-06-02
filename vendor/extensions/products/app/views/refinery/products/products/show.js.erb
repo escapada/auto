@@ -1,11 +1,12 @@
-//alert("aanjasnlasnl");
+<% @product.photos.any? ?  photopath=@product.photos.first.image.url(:thumb) : photopath=@car_name.downcase+'.png' %>
+
 $("#showproducts").html('');
 
 html =	"<h2><%= j @product.carmodelsubtype.title %></h2>"+
 	"<div class='description_block'>"+
 		"<div class='descr_div_top'>"+
 			"<div class='img_div'>"+
-				"<%= j image_tag(@product.photos.first.image.url(:thumb)) %>"+
+				"<%= j image_tag(photopath) %>"+
 			"</div>"+
 			"<div class='descr_div'>"+
 				"<div class='descr_head'><%= j @product.carmodelsubtype.title %> <% @cars.each do |car| %><%= car %>&nbsp;<% end %> </div>"+

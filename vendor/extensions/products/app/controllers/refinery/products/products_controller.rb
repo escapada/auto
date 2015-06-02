@@ -44,6 +44,7 @@ module Refinery
       def show
         @product = Product.find(params[:id])
 
+        @car_name=@product.carmodels.first.car.title
         @cars = []
         @product.carmodels.each do |carmodel|
           @cars << carmodel.car.title if !(@cars.include?(carmodel.car.title))

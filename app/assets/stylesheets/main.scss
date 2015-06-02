@@ -107,3 +107,15 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 .separator{clear: both; border-bottom: 1px dotted #aaa; height:20px; width: 100%; display: block; margin-bottom: 20px;}
 .car_sign_wrap{ margin: 25px 0 0 55px;}
 .car_sign{float:left; margin: 0 40px 40px 0;}
+#home-page #body .inner{border-top: 1px dotted #aaa; padding:20px 0;}
+#home-page #body p{padding-top: 15px; font-size: 14px; }
+#home-page #body ul li{ font-size: 14px; line-height: 17px; }
+#home-page #body ul{ padding-left: 50px;}
+#info_block{ width: 100%; margin-top: 20px;}
+#info_money { width:324px; height: 100px; background: url(money_icon.png) no-repeat 0 0; float: left;}
+#info_money div{ width:200px; margin-left: 105px;}
+#info_car { width:324px; height: 100px; background: url(car_icon.png) no-repeat 0 0; float: left;}
+#info_car div{ width:200px; margin-left: 105px;}
+#info_time { width:324px; height: 100px; background: url(time_icon.png) no-repeat 0 0; float: right;}
+#info_time div{ width:200px; margin-left: 105px;}
+

@@ -3,7 +3,6 @@ $("#showproducts").html('');
 
 <% @products.each do |product| %>
 <%product.photos.any? ?  photopath=product.photos.first.image.url(:thumb) : photopath=@car_name.downcase+'.png' %>
-alert('<%= photopath %>');
 
 html =	"<h2><%= j product.carmodelsubtype.title %></h2>"+
 	"<div class='description_block'>"+
