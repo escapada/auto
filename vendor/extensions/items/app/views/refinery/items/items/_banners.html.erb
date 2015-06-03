@@ -4,7 +4,7 @@
   </div>
   <div class="car_sign_wrap">
     <%['vw','audi','skoda','seat'].each do |car|%>
-      <div class="car_sign"><%= link_to image_tag(car+'.png', :width => ''), refinery.products_products_path %></div>
+      <div class="car_sign"><%= link_to image_tag(car+'.png'), refinery.products_products_path %></div>
     <% end %>
   </div>
 </div>

@@ -41,10 +41,10 @@
 </div>
 <div class="clear" style="margin-bottom:15px;"></div>
 
-<div id="examples">
+<div id="examples" class="clearfix">
   <% @items.first(8).each_with_index do |prw_photo, i| %>
     <% [3,7].include?(i) ? cl="last" : "" %>
-    <div class="random_prw <%= cl %>"><%= link_to image_tag(prw_photo.photos.first.image.url(:medium), {:width => 221, :title => "#{prw_photo.title}"}), refinery.items_item_path(prw_photo) %></div>
+    <div class="random_prw <%= cl %>"><%= link_to image_tag(prw_photo.photos.first.image.url(:medium), {:width => 220, :title => "#{prw_photo.title}"}), refinery.items_item_path(prw_photo) %></div>
   <% end %>
 	
 </div>

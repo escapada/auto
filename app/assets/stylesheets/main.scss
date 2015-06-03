@@ -5,7 +5,7 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 
 #page{padding: 30px 0 0 0;}
 #body{width: 620px; float:left;}
-#side_body{float: right; width: 324px; padding: 29px 0 0;} 
+#side_body{float: right; width: 320px; padding: 29px 0 0;} 
 
 /*home-page wide width. all others two columns*/
 #home-page #body{width: 100%;}
@@ -23,21 +23,21 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 #menu li{float:left; line-height:50px; margin: 0 15px 0 0; a{color:#aaa;}}
 .selected a, a:hover{color:#000 !important;} 
 
-.wrap{width:974px; margin: 0 auto; padding: 0 15px;}
+.wrap{width:940px; margin: 0 auto;}
 
 #footer{ border-top: #aaa dotted 1px; padding: 15px 0; margin:20px 0 0;}
 
-.item_prw{ width:293px; border: #aaa dotted 1px; float: left; margin-bottom:30px;}
+.item_prw{ width:293px; border: #aaa dotted 1px; float: left; margin-bottom:15px;}
 .odd{ margin-right: 30px;}
 .even{ margin-right: 0;}
 .item_info{ height: 70px;}
 .item_info img{ float: left; margin: 5px 5px 0 5px;}
 .items_txt{ line-height: 19px; text-align: center; font-size: 14px; padding:5px 5px 0 0;}
 
-#banner_search{ width: 295px; height: 295px; background: url(banner_bg.jpg) no-repeat; }
-#banner_call{ margin:30px 0 30px 0;}
-.banner_txt{ width:295px; text-align: center; padding:17px 0;}
-.banner_txt span{ font-size: 11px; font-weight: bold; color: #fff;}
+#banner_search{ width: 290px; height: 290px; background: url(banner_bg.jpg) no-repeat; margin-left: 30px;}
+#banner_call{ margin:30px 0 30px 30px;}
+.banner_txt{ width:290px; text-align: center; padding:17px 0;}
+.banner_txt span{ font-size: 10px; font-weight: bold; color: #fff;}
 .item_head{ height:70px; border-top: #aaa dotted 1px; border-bottom: #aaa dotted 1px;}
 .item_head img{ float: left; margin: 11px 10px 0 5px;}
 .item_txt{ line-height: 70px; text-align: left; font-size: 14px;}
@@ -53,7 +53,20 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 .similar_prw{float:right; margin-left: 30px;  width: 216px;}
 
 /*///////////////part of car names search block on first and search pages. + tree view*/
-#carsearch{}
+/*////////////display searchcar block (main and products pages)*/
+#carsearch{width: 620px; float:left;}
+#carsearch h1{margin-bottom: 20px;}
+#carsearch-right{float: right; width: 320px; text-align: right;}
+.column{ width:154px; min-height: 380px; float: left; border-right: 1px dotted #aaa;} 
+.column.last{ border:none;} 
+.column ul{ padding: 0 20px 20px 20px; margin-top: 20px;} 
+.column ul li{ margin-bottom: 3px;} 
+.column ul a{color: #000; } 
+.car_img{width: inherit; text-align: left; padding-left: 20px;} 
+
+#examples{ /*display:inline-block;*/ border-top: 1px dotted #aaa; padding-top: 20px; }
+.random_prw{ float: left; margin:0 20px 20px 0;}
+.random_prw.last{ float: left; margin-right:0!important;}
 
 #tree{ float: left; margin-left: 100px; clear: both;}
 #tree a{color: #000;}
@@ -86,21 +99,6 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 .descr_price div{ width:277px; height:41px; margin: 0 auto; line-height:41px; background: url(price_bg.jpg) no-repeat; font-weight: bold; font-size: 18px;}
 .descr_head{ height: 41px; line-height: 41px; background: #eee; text-align: center; font-size: 16px; font-weight: bold; border-bottom: 1px dotted #aaa;}
 
-/*////////////display searchcar block (main and products pages)*/
-#carsearch{width: 620px; float:left;}
-#carsearch h1{margin-bottom: 20px;}
-#carsearch-right{float: right; width: 324px;}
-.column{ width:154px; min-height: 380px; float: left; border-right: 1px dotted #aaa;} 
-.column.last{ border:none;} 
-.column ul{ padding: 0 20px 20px 20px; margin-top: 20px;} 
-.column ul li{ margin-bottom: 3px;} 
-.column ul a{color: #000; } 
-.car_img{width: inherit; text-align: center;} 
-
-#examples{ display:inline-block; border-top: 1px dotted #aaa; padding: 20px 0 0 15px; }
-.random_prw{ float: left; margin:0 20px 20px 0;}
-.random_prw.last{ float: left; margin-right:0!important;}
-
 .clear{clear: both;}
 
 /*////////////styles front-end pages plus...*/
@@ -112,10 +110,10 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 #home-page #body ul li{ font-size: 14px; line-height: 17px; }
 #home-page #body ul{ padding-left: 50px;}
 #info_block{ width: 100%; margin-top: 20px;}
-#info_money { width:324px; height: 100px; background: url(money_icon.png) no-repeat 0 0; float: left;}
-#info_money div{ width:200px; margin-left: 105px;}
-#info_car { width:324px; height: 100px; background: url(car_icon.png) no-repeat 0 0; float: left;}
-#info_car div{ width:200px; margin-left: 105px;}
-#info_time { width:324px; height: 100px; background: url(time_icon.png) no-repeat 0 0; float: right;}
-#info_time div{ width:200px; margin-left: 105px;}
+#info_money { width:313px; height: 100px; background: url(money_icon.png) no-repeat 0 0; float: left;}
+#info_money div{ width:215px; margin-left: 80px;}
+#info_car { width:313px; height: 100px; background: url(car_icon.png) no-repeat 0 0; float: left;}
+#info_car div{ width:215px; margin-left: 80px;}
+#info_time { width:313px; height: 100px; background: url(time_icon.png) no-repeat 0 0; float: right;}
+#info_time div{ width:215px; margin-left: 80px;}
 
