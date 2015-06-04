@@ -3,32 +3,35 @@ module Refinery
     module Admin
       class ProductsController < ::Refinery::AdminController
 
+        before_filter :find_categories, :only => :index
+
         crudify :'refinery/products/product',
                 :xhr_paging => true,
                 :include => [:carmodelsubtype]#,
                 #:conditions => 'carmodelsubtype_id=1'
 
-        # def index
-
-        #   tmp = Product.includes(:carmodels).all
-        #   if params[:filter]
-        #     case params[:filter]
-        #     when params[:filter][:carmodel_id]
-        #       tmp.each do |product|
-        #         @products << product if product.carmodel_ids.any? { |elem| elem ==  params[:filter][:carmodel_id] }
-        #       end
-        #     #else
-        #     end
-        #   else
-        #     @products = tmp
-        #   end
-        #     #@products = Product.filter(params[:filter])
-        # end
         
+        def tmp_for_comment_lines
+                  # tmp = Product.includes(:carmodels).all
+          # if params[:filter]
+          #   case params[:filter]
+          #   when params[:filter][:carmodel_id]
+          #     tmp.each do |product|
+          #       @products << product if product.carmodel_ids.any? { |elem| elem ==  params[:filter][:carmodel_id] }
+          #     end
+          #   #else
+          #   end
+          # else
+          #   @products = tmp
+          # end
+          #   #@products = Product.filter(params[:filter])
+        end
+
+
         def new
-        	@product = Product.new
-        	#@products = Product.find(:all)
-        	@cars = Car.includes(:carmodels).all
+          @product = Product.new
+          #@products = Product.find(:all)
+          @cars = Car.includes(:carmodels).all
         end
 
         def create
@@ -107,6 +110,32 @@ module Refinery
            end
         end
 
+
+        ##################subtype admin ajax
+        def subtype_new
+          subtype = Carmodelsubtype.new(params[:title])
+          if subtype.save
+            render :text => "fucking work"
+            respond_to do |format|
+              format.js
+            end
+          end
+        end
+
+        def subtype_update
+          
+          respond_to do |format|
+            format.js
+          end
+        end
+
+        def subtype_delete
+          
+          respond_to do |format|
+            format.js
+          end
+        end
+
         # def main_img
         #   @attach = ProductPhoto.find(params[:id])
         #   @attachs = ProductPhoto.where(product_id: @attach.product_id)
@@ -125,7 +154,10 @@ module Refinery
         #  end
         # end 
 
-
+        ##################before filters
+        def find_categories
+          @categories=Carmodeltype.includes(:carmodelsubtypes).all
+        end
 
         ##########filter does nothig, I guess ))) forgot what for... 
         def filter

@@ -48,6 +48,7 @@ Auto::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( add_style.css )
   config.assets.precompile += %w( admin_products.js )
+  config.assets.precompile += %w( admin_products_index.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   if config.respond_to?(:action_mailer)

@@ -8,13 +8,7 @@ module Refinery
 
       belongs_to			:carmodeltype, :class_name => '::Refinery::Products::Carmodeltype'
 
-      #validates :title, :presence => true, :uniqueness => true
+      validates :title, :presence => true, :uniqueness => true
     end
   end
 end
-
-
-###default by generator
-# class Carmodelsubtype < ActiveRecord::Base
-#   attr_accessible :title
-# end

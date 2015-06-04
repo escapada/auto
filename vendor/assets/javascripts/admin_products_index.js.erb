@@ -1,0 +1,43 @@
+////$(function) is the same $(document).ready(function)
+$(function() {
+
+	//block for managing tree categories vs subcategories
+	if (typeof $('#tree') != "undefined") {
+		$('.tree_typename_wrap').click(function() {
+			//$('.tree_subtype', this).toggle();
+			$(this).next().toggle();
+			if ($('.tree_plus span', this).text() == '+') {
+				$('.tree_plus span', this).text('-');
+			} else{
+				$('.tree_plus span', this).text('+');
+			};
+
+		});
+		//block for subplus button ajax
+		$('#subplus').click(function() {
+			var title;
+			title = $(this).prev().val();
+
+			//check here if not blank 
+			// if (!title || $.trim(title)=="" || title=="") {
+			// 	alert("blank");
+			// } else {
+			// 	alert("not blank");
+			// };
+			$.ajax({
+				url: '/admin/subtype_new',
+				type: 'POST',
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+				data: 'title='+title,
+				//dataType: "json",
+				success: function(tmp){
+				console.log(tmp);
+				// 	$(listitems).append(tmp);
+				}
+			});
+		});
+	
+	}//end of if tree
+
+
+});

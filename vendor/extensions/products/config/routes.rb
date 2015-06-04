@@ -22,6 +22,9 @@ Refinery::Core::Engine.routes.draw do
       match 'product_imgs/:id', to: 'products#imgs', :as => :imgs, via: [:get]
       match 'product_delete_img/:id', to: 'products#delete_img', :as => :delete_img, via: [:post]
       #match 'main_img/:id', to: 'products#main_img', :as => :main_img, via: [:post]
+      match 'subtype_new', to: 'products#subtype_new', :as => :subnew, via: [:post]
+      match 'subtype_delete/:id', to: 'products#subtype_delete', :as => :subdelete, via: [:delete]
+      match 'subtype_update/:id', to: 'products#subtype_update', :as => :subupdate, via: [:patch, :put]
 
     end
   end

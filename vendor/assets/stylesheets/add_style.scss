@@ -15,6 +15,29 @@
 .delete_item{padding: 5px; font-size: 18px; line-height: 18px; font-weight: bold; margin-left: 10px; cursor: pointer; color:red;}
 
 
+/*//////////////////////////////////////////////////*/
+
+.manage_type{}
+.manage_positions{}
+
+#tree{clear: both;}
+#tree a{line-height: 16px !important; color: #000; border: none !important; display: inline !important; padding: 0 !important; background: #fff !important; display: inline !important; padding: 0 !important;}
+#tree ul{margin: 0;}
+#tree ul li{margin: 0; cursor: default; line-height: 16px; margin-bottom: 3px;}
+#tree input{ font-size: 12px;}
+.tree_type{clear: both; cursor: pointer;}
+.tree_typename_wrap{ margin-bottom: 1px;}
+.tree_plus{width:15px; height:15px; border: 1px dotted #aaa; color: #aaa; float: left; line-height: 14px; text-align: center;}
+.tree_typename{text-align: left; margin: 0 0 0 10px; display: inline;}
+.tree_subtype{ clear: both; background: url(lftdotted.png) repeat-y left; padding-left: 20px; display:none;}
+/*.subtype_li{ cursor: default;}*/
+#subplus{/*display: inline;*/}
+/*#subplus img{}*/
+.subtype_delete{}
+.subtype_update{}
+
+
+/*////////////////////////////////////////////////*/
 
 
 
