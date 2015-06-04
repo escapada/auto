@@ -21,7 +21,7 @@
 .manage_positions{}
 
 #tree{clear: both;}
-#tree a{line-height: 16px !important; color: #000; border: none !important; display: inline !important; padding: 0 !important; background: #fff !important; display: inline !important; padding: 0 !important;}
+#tree li img{line-height: 16px; border: none; display: inline; padding: 0; cursor: pointer;}
 #tree ul{margin: 0;}
 #tree ul li{margin: 0; cursor: default; line-height: 16px; margin-bottom: 3px;}
 #tree input{ font-size: 12px;}
@@ -33,6 +33,7 @@
 /*.subtype_li{ cursor: default;}*/
 #subplus{/*display: inline;*/}
 /*#subplus img{}*/
+.subtype_up{}
 .subtype_delete{}
 .subtype_update{}
 

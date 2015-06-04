@@ -14,25 +14,61 @@ $(function() {
 
 		});
 		//block for subplus button ajax
-		$('#subplus').click(function() {
-			var title;
-			title = $(this).prev().val();
-
+		$('.subplus').click(function() {
+			var title = $(this).prev().val();
+			var typeid = $(this).prev().attr('typeid');//.toInteger;
+				//console.log($(this).prev().attr(typeid));
+			///////////////////////////////////
 			//check here if not blank 
+			///////////////////////////////////
 			// if (!title || $.trim(title)=="" || title=="") {
 			// 	alert("blank");
 			// } else {
 			// 	alert("not blank");
 			// };
 			$.ajax({
-				url: '/admin/subtype_new',
+				url: 'subtype_new',
 				type: 'POST',
 				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
-				data: 'title='+title,
+				data: 'title='+title+'&carmodeltype_id='+typeid,
 				//dataType: "json",
 				success: function(tmp){
+					$("#subtype_ul"+typeid).append(tmp);
 				console.log(tmp);
 				// 	$(listitems).append(tmp);
+				}
+				//error: function(){alert("Возникла ошибка!");}
+			});
+		});
+
+		//block for subtype-up button ajax
+		$('.subtype_up').click(function() {
+			var title = $(this).prev().val();
+			var subtypeid = $(this).parent().attr('subtype-id');//.toInteger;
+			console.log(title);
+			$.ajax({
+				url: 'subtype_update',
+				type: 'POST',
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+				data: 'id='+subtypeid+'&title='+title,
+				//dataType: "json",
+				success: function(){alert("Позизия обновлена!");},
+				error: function(){alert("Возникла ошибка!");}
+			});
+		});
+
+		//block for subtype-delete button ajax
+		$('.subtype_delete').click(function() {
+			var obj = $(this).parent();
+			var subtypeid = obj.attr('subtype-id');
+			$.ajax({
+				url: 'subtype_delete',
+				type: 'POST',
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+				data: 'id='+subtypeid,
+				//dataType: "json",
+				success: function(){
+					obj.remove();
 				}
 			});
 		});
@@ -40,4 +76,31 @@ $(function() {
 	}//end of if tree
 
 
-});
+});//end of document ready
+
+////////////////functions helpers
+function removesubtype(id) {
+	var obj = $('[subtype-id='+"'"+id+"'"+']');
+	$.ajax({
+		url: 'subtype_delete',
+		type: 'POST',
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+		data: 'id='+id,
+		//dataType: "json",
+		success: function(){
+			obj.remove();
+		}
+	});
+};
+
+function updatesubtype(id, title) {
+	var obj = $('[subtype-id='+"'"+id+"'"+']');
+	$.ajax({
+		url: 'subtype_update',
+		type: 'POST',
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+		data: 'id='+id+'&title='+title,
+		success: function(){alert("Позизия обновлена!");},
+		error: function(){alert("Возникла ошибка!");}
+	});
+};

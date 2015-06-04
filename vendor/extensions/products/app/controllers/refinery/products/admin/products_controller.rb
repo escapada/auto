@@ -113,27 +113,28 @@ module Refinery
 
         ##################subtype admin ajax
         def subtype_new
-          subtype = Carmodelsubtype.new(params[:title])
+          subtype = Carmodelsubtype.new(:title => params[:title], :carmodeltype_id => params[:carmodeltype_id])
           if subtype.save
-            render :text => "fucking work"
-            respond_to do |format|
-              format.js
-            end
+            txt_append = "<li class='subtype_li' subtype-id='#{subtype.id}'><input class='subtype_update' value='#{subtype.title}' size='25' />"
+            txt_append += "<img alt='Tick' class='subtype_delete' height='16' src='/assets/refinery/icons/delete.png' width='16' onclick='removesubtype(#{subtype.id})' />"
+            #txt_append += "refinery_icon_tag('delete.png', :class => 'subtype_delete')</li>"
+
+            render :text => txt_append
+
           end
         end
 
         def subtype_update
-          
-          respond_to do |format|
-            format.js
+          @subtype = Carmodelsubtype.find(params[:id])
+          if @subtype.update_attributes(:title => params[:title])
+            render :text => "New tittle is #{params[:title]}"
           end
         end
 
         def subtype_delete
-          
-          respond_to do |format|
-            format.js
-          end
+          @subtype = Carmodelsubtype.find(params[:id])
+          @subtype.destroy
+            render :text => "Deleted #{params[:id]}"
         end
 
         # def main_img

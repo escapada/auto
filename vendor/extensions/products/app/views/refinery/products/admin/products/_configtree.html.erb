@@ -10,14 +10,12 @@
         </div>
       </div>
       <div class="tree_subtype">
-        <ul>
-          <li><%= text_field_tag 'manage_type', "", :size => 25 -%><%= refinery_icon_tag("add.png", :id => "subplus") %></li>
+        <ul id="subtype_ul<%= type.id %>">
+          <li class="subtype_li"><%= text_field_tag 'manage_type', "", :typeid => type.id, :size => 25 -%><%= refinery_icon_tag("add.png", :class => "subplus") %></li>
           <% type.carmodelsubtypes.each do |subtype| %>
-            <li class="subtype_li"><input id="<%= subtype.id %>" class="subtype_update" value="<%= subtype.title %>" size="25" />
-              <%= link_to refinery_icon_tag("tick.png"), refinery.products_admin_subupdate_path(:id => subtype.id), :remote => true, :method => "post" %>
-              <%= link_to refinery_icon_tag("delete.png"), refinery.products_admin_subdelete_path(subtype),
-                :class => "subtype_delete",
-                :method => :delete %>
+            <li class="subtype_li" subtype-id="<%= subtype.id %>"><input class="subtype_update" value="<%= subtype.title %>" size="25" />
+              <%= refinery_icon_tag("tick.png", :class => "subtype_up") %>
+              <%= refinery_icon_tag("delete.png", :class => "subtype_delete") %>
             </li>
           <% end %>
         </ul>
@@ -25,27 +23,3 @@
     </div>
   <% end %>
 </div>
-
-
-
-
-<div class='field'>
-    <strong>Добавить модель</strong><br />
-    <%#= select_tag(@cars) %>
-    <%= text_field_tag 'manage_type' -%>
-    <div class="manage_positions">
-    </div>
-  </div>
-<!-- 
-  <div id="listitems">
-    <%# model_ids = Array.new() %>
-    <%# @product.carmodels.each do |model|%>
-      <div class="carmodelitem" data-carmodelid="<%#= model.id %>">
-        <%#= model.title %>
-        <span class="delete_item" onclick="delete_tmp_item('modeltype', <%#= model.id %>)">-</span>
-      </div>
-      <%# model_ids << model.id %>
-    <%# end %>
-    <%#= f.hidden_field(:carmodel_ids) -%>
-  </div> -->
-
