@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150522111158) do
+ActiveRecord::Schema.define(:version => 20150605115940) do
 
   create_table "carmodels", :force => true do |t|
     t.string   "title"
@@ -113,6 +113,34 @@ ActiveRecord::Schema.define(:version => 20150522111158) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "refinery_news_item_translations", :force => true do |t|
+    t.integer  "refinery_news_item_id"
+    t.string   "locale",                :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "title"
+    t.text     "body"
+    t.string   "source"
+    t.string   "slug"
+  end
+
+  add_index "refinery_news_item_translations", ["locale"], :name => "index_refinery_news_item_translations_on_locale"
+  add_index "refinery_news_item_translations", ["refinery_news_item_id"], :name => "index_refinery_news_item_translations_fk"
+
+  create_table "refinery_news_items", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "publish_date"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "image_id"
+    t.datetime "expiration_date"
+    t.string   "source"
+    t.string   "slug"
+  end
+
+  add_index "refinery_news_items", ["id"], :name => "index_refinery_news_items_on_id"
+
   create_table "refinery_page_part_translations", :force => true do |t|
     t.integer  "refinery_page_part_id"
     t.string   "locale",                :null => false
@@ -180,10 +208,10 @@ ActiveRecord::Schema.define(:version => 20150522111158) do
     t.integer  "carmodelsubtype_id"
     t.string   "condition"
     t.string   "status"
-    t.decimal  "price"
+    t.decimal  "price",              :precision => 10, :scale => 0
     t.integer  "position"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
   end
 
   create_table "refinery_resources", :force => true do |t|
@@ -207,6 +235,20 @@ ActiveRecord::Schema.define(:version => 20150522111158) do
 
   add_index "refinery_roles_users", ["role_id", "user_id"], :name => "index_refinery_roles_users_on_role_id_and_user_id"
   add_index "refinery_roles_users", ["user_id", "role_id"], :name => "index_refinery_roles_users_on_user_id_and_role_id"
+
+  create_table "refinery_settings", :force => true do |t|
+    t.string   "name"
+    t.text     "value"
+    t.boolean  "destroyable",     :default => true
+    t.string   "scoping"
+    t.boolean  "restricted",      :default => false
+    t.string   "form_value_type"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "slug"
+  end
+
+  add_index "refinery_settings", ["name"], :name => "index_refinery_settings_on_name"
 
   create_table "refinery_user_plugins", :force => true do |t|
     t.integer "user_id"

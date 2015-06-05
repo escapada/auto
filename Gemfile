@@ -51,6 +51,8 @@ gem 'refinerycms-acts-as-indexed', '~> 1.0.0'
 #  gem 'refinerycms-inquiries', '~> 2.1.0'
 #  gem 'refinerycms-search', '~> 2.1.0'
 
+gem "refinerycms-news", '~> 2.1.0'
+
 gem 'refinerycms-page-images', '~> 2.1.0'
 
 gem 'refinerycms-items', :path => 'vendor/extensions'

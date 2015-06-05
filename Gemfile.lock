@@ -158,6 +158,10 @@ GEM
     refinerycms-images (2.1.5)
       dragonfly (~> 0.9.14)
       refinerycms-core (= 2.1.5)
+    refinerycms-news (2.1.2)
+      friendly_id (~> 4.0.9)
+      refinerycms-core (~> 2.1.1)
+      refinerycms-settings (~> 2.1.0)
     refinerycms-page-images (2.1.1)
       refinerycms-pages (~> 2.1.0)
     refinerycms-pages (2.1.5)
@@ -171,6 +175,8 @@ GEM
       acts_as_indexed (~> 0.8.0)
       dragonfly (~> 0.9.12)
       refinerycms-core (= 2.1.5)
+    refinerycms-settings (2.1.1)
+      refinerycms-core (~> 2.1.1)
     routing-filter (0.3.1)
       actionpack
     sass (3.4.13)
@@ -219,6 +225,7 @@ DEPENDENCIES
   refinerycms (~> 2.1.0)
   refinerycms-acts-as-indexed (~> 1.0.0)
   refinerycms-items!
+  refinerycms-news (~> 2.1.0)
   refinerycms-page-images (~> 2.1.0)
   refinerycms-products!
   sass-rails (~> 3.2.3)
