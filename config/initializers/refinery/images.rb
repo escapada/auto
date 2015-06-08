@@ -13,8 +13,8 @@ Refinery::Images.configure do |config|
   # Configure how many images per page should be displayed in the list of images in the admin area
   # config.pages_per_admin_index = 20
 
-  # Configure image sizes
-  # config.user_image_sizes = {:small=>"110x110>", :medium=>"225x255>", :large=>"450x450>"}
+  #Configure image sizes
+  config.user_image_sizes = {:news=>"280x210#", :small=>"110x110>", :medium=>"225x255>", :large=>"450x450>"}
 
   # Configure white-listed mime types for validation
   # config.whitelisted_mime_types = ["image/jpeg", "image/png", "image/gif", "image/tiff"]

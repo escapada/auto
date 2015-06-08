@@ -10,6 +10,7 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 /*home-page wide width. all others two columns*/
 #home-page #body{width: 100%;}
 #products-page #body{width: 100%;}
+#news-page #body{width: 100%;}
 /**/
 
 .topmargin{margin-top:0;}
@@ -99,6 +100,15 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 .descr_price div{ width:277px; height:41px; margin: 0 auto; line-height:41px; background: url(price_bg.jpg) no-repeat; font-weight: bold; font-size: 18px;}
 .descr_head{ height: 41px; line-height: 41px; background: #eee; text-align: center; font-size: 16px; font-weight: bold; border-bottom: 1px dotted #aaa;}
 
+/*////////////display news block*/
+#news_wrap{ width: 100%;}
+#news_wrap a{ color: #000;}
+.news_div{float: left; width: 280px; margin: 0 40px 15px 0;}
+.news_div .last{float: left; margin: 0;}
+.news_img_prw{}
+
+
+
 .clear{clear: both;}
 
 /*////////////styles front-end pages plus...*/
@@ -116,6 +126,7 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 #info_car div{ width:215px; margin-left: 80px;}
 #info_time { width:313px; height: 100px; background: url(time_icon.png) no-repeat 0 0; float: right;}
 #info_time div{ width:215px; margin-left: 80px;}
+
 
 
 
