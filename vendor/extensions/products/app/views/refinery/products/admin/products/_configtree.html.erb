@@ -23,3 +23,29 @@
     </div>
   <% end %>
 </div>
+
+<div id="cartree">
+  <% @carcategories.each do |car| %>
+    <div class="tree_car">
+      <div class="tree_carname_wrap">
+        <div class="tree_plus">
+          <span>+</span>
+        </div>
+        <div class="tree_carname">
+          <%= car.title %>
+        </div>
+      </div>
+      <div class="tree_model">
+        <ul id="model_ul<%= car.id %>">
+          <li class="model_li"><%= text_field_tag 'manage_model', "", :carid => car.id, :size => 25 -%><%= refinery_icon_tag("add.png", :class => "modelplus") %></li>
+          <% car.carmodels.each do |model| %>
+            <li class="model_li" model-id="<%= model.id %>"><input class="subtype_update" value="<%= model.title %>" size="25" />
+              <%= refinery_icon_tag("tick.png", :class => "model_up") %>
+              <%= refinery_icon_tag("delete.png", :class => "model_delete") %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>

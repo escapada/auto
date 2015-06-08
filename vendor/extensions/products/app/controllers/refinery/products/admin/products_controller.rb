@@ -3,7 +3,7 @@ module Refinery
     module Admin
       class ProductsController < ::Refinery::AdminController
 
-        before_filter :find_categories, :only => :index
+        before_filter :find_categories, :only => :new
 
         crudify :'refinery/products/product',
                 :xhr_paging => true,
@@ -137,6 +137,32 @@ module Refinery
             render :text => "Deleted #{params[:id]}"
         end
 
+        ##################car models admin ajax
+        def model_new
+          model = Carmodel.new(:title => params[:title], :car_id => params[:car_id])
+          if model.save
+            txt_append = "<li class='model_li' model-id='#{model.id}'><input class='subtype_update' value='#{model.title}' size='25' />"
+            txt_append += "<img alt='Tick' class='model_delete' height='16' src='/assets/refinery/icons/delete.png' width='16' onclick='removemodel(#{model.id})' />"
+            #txt_append += "refinery_icon_tag('delete.png', :class => 'model_delete')</li>"
+
+            render :text => txt_append
+
+          end
+        end
+
+        def model_update
+          @model = Carmodel.find(params[:id])
+          if @model.update_attributes(:title => params[:title])
+            render :text => "New tittle is #{params[:title]}"
+          end
+        end
+
+        def model_delete
+          @model = Carmodel.find(params[:id])
+          @model.destroy
+            render :text => "Deleted #{params[:id]}"
+        end        
+
         # def main_img
         #   @attach = ProductPhoto.find(params[:id])
         #   @attachs = ProductPhoto.where(product_id: @attach.product_id)
@@ -158,6 +184,7 @@ module Refinery
         ##################before filters
         def find_categories
           @categories=Carmodeltype.includes(:carmodelsubtypes).all
+          @carcategories=Car.includes(:carmodels).all
         end
 
         ##########filter does nothig, I guess ))) forgot what for... 

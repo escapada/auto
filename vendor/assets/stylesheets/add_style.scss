@@ -9,7 +9,7 @@
 
 #hidden_helper{position: absolute; top: 0; left: 0; display: none; width: 100%; height: 100%; z-index: 1;}
 #modeltype, #subtype{width: 400px;}
-.tmplistitems{position: absolute; width: 396px; display: none; background:#fff; border:1px solid #7f9db9; border-top:none!important; padding: 7px;z-index: 10;}
+.tmplistitems{position: absolute; width: 390px; display: none; background:#fff; border:1px solid #7f9db9; border-top:none!important; padding: 7px;z-index: 10;}
 #listitems{margin: 5px 0;}
 #listitems_sub{margin: 5px 0;}
 .delete_item{padding: 5px; font-size: 18px; line-height: 18px; font-weight: bold; margin-left: 10px; cursor: pointer; color:red;}
@@ -20,23 +20,33 @@
 .manage_type{}
 .manage_positions{}
 
-#tree{clear: both;}
-#tree li img{line-height: 16px; border: none; display: inline; padding: 0; cursor: pointer;}
-#tree ul{margin: 0;}
-#tree ul li{margin: 0; cursor: default; line-height: 16px; margin-bottom: 3px;}
-#tree input{ font-size: 12px;}
-.tree_type{clear: both; cursor: pointer;}
-.tree_typename_wrap{ margin-bottom: 1px;}
-.tree_plus{width:15px; height:15px; border: 1px dotted #aaa; color: #aaa; float: left; line-height: 14px; text-align: center;}
-.tree_typename{text-align: left; margin: 0 0 0 10px; display: inline;}
-.tree_subtype{ clear: both; background: url(lftdotted.png) repeat-y left; padding-left: 20px; display:none;}
+#tree, #cartree {float: left; width: 300px; margin-top: 15px;}
+#tree li img, #cartree li img {line-height: 16px; border: none; display: inline; padding: 0; cursor: pointer;}
+#tree ul, #cartree ul {margin: 0; padding: 0; list-style-type: none;}
+#tree ul li, #cartree ul li {margin: 0; cursor: default; line-height: 16px; margin-bottom: 3px;}
+#tree input, #cartree input { font-size: 12px;}
+.tree_type, .tree_car{clear: both; cursor: pointer; width:300px;}
+.tree_typename_wrap, .tree_carname_wrap { margin-bottom: 1px;}
+.tree_plus {width:15px; height:15px; border: 1px dotted #aaa; color: #aaa; float: left; line-height: 14px; text-align: center;}
+.tree_typename, .tree_carname{text-align: left; margin: 0 0 0 10px; display: inline;}
+.tree_subtype, .tree_model{ clear: both; background: url(lftdotted.png) repeat-y left; padding-left: 20px; display:none;}
 /*.subtype_li{ cursor: default;}*/
-#subplus{/*display: inline;*/}
+.subplus, .modelplus{/*display: inline;*/}
 /*#subplus img{}*/
-.subtype_up{}
-.subtype_delete{}
-.subtype_update{}
+.subtype_up, .subtype_up{}
+.subtype_delete, .subtype_delete{}
+.subtype_update, .subtype_update{}
 
+#new_product{}
+#add_model_div{float: left;}
+#add_type_div{float: left; margin-left: 20px;}
+#name_div{clear:left; float: left;margin-right: 20px;}
+#cond_div{float: left;margin-right: 20px;}
+#status_div{float: left; margin-bottom: 15px;}
+#price_div{float: left; margin-right: 20px;}
+#new_product .form-actions{clear: both;  display: block;}
+
+#show_adding{line-height: 16px; cursor: pointer;}
 
 /*////////////////////////////////////////////////*/
 

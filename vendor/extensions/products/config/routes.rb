@@ -25,6 +25,10 @@ Refinery::Core::Engine.routes.draw do
       match 'subtype_new', to: 'products#subtype_new', :as => :subnew, via: [:post]
       match 'subtype_delete', to: 'products#subtype_delete', :as => :subdelete, via: [:post]
       match 'subtype_update', to: 'products#subtype_update', :as => :subupdate, via: [:post]
+      ##
+      match 'model_new', to: 'products#model_new', :as => :modelnew, via: [:post]
+      match 'model_delete', to: 'products#model_delete', :as => :modeldelete, via: [:post]
+      match 'model_update', to: 'products#model_update', :as => :modelupdate, via: [:post]
 
     end
   end
