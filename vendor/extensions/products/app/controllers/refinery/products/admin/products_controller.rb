@@ -3,11 +3,13 @@ module Refinery
     module Admin
       class ProductsController < ::Refinery::AdminController
 
-        before_filter :find_categories, :only => :new
+        before_filter :find_categories, :only => [:new, :edit]
+        before_filter :set_filter#, :only => [:new, :edit]
 
         crudify :'refinery/products/product',
                 :xhr_paging => true,
-                :include => [:carmodelsubtype]#,
+                :include => [:carmodelsubtype, :carmodels],
+                :conditions => {:carmodels => {:id => @filter_model}}#, :carmodelsubtype_id => params[:filter_type]}#,
                 #:conditions => 'carmodelsubtype_id=1'
 
         
@@ -181,7 +183,13 @@ module Refinery
         #  end
         # end 
 
+
+        private
         ##################before filters
+        def set_filter
+          @filter_model = params[:model]  
+        end
+
         def find_categories
           @categories=Carmodeltype.includes(:carmodelsubtypes).all
           @carcategories=Car.includes(:carmodels).all

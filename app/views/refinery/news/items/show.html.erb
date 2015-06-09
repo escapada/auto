@@ -1,20 +1,24 @@
-<% content_for :body_content_title, @item.title %>
+<h1>АВТОНОВОСТИ</h1>
 <% content_for :body do %>
+<div class="news_left_prw">
+  <%= image_tag(@item.preview_img.thumbnail(:geometry => '280x210#').url) %>
+</div>
+<div class="news_body">
   <article class="news_item">
-    <p>
-      <small><%= t('.published') %> <%= l(@item.publish_date, :format => :long) %></small>
-    </p>
+    <div class="news_date">
+      <small><%= l(@item.publish_date, :format => :long) %></small>
+    </div>
     <% if @item.source.present? %>
       <p>
         <small><%= t('.source') %> <%= @item.source %></small>
       </p>
     <% end %>
+    <h2><%= @item.title %></h2>
     <%= @item.body.html_safe %>
-    <p>
-      <%= link_to t('.back_to_index'), refinery.news_items_path %>
-    </p>
   </article>
+</div>
 <% end %>
-<% content_for :side_body, render(:partial => 'recent_posts') %>
+
+<%# content_for :side_body, render(:partial => 'recent_posts') %>
 
 <%= render "/refinery/content_page" %>
