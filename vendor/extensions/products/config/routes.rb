@@ -29,6 +29,9 @@ Refinery::Core::Engine.routes.draw do
       match 'model_new', to: 'products#model_new', :as => :modelnew, via: [:post]
       match 'model_delete', to: 'products#model_delete', :as => :modeldelete, via: [:post]
       match 'model_update', to: 'products#model_update', :as => :modelupdate, via: [:post]
+      ##
+      match 'set_filter', to: 'products#set_filter', :as => :setfilter, via: [:post]
+
 
     end
   end
