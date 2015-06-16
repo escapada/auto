@@ -21,4 +21,19 @@ if (typeof $('#tree') != "undefined") {
 	});
 }
 
+// min-height, footer to the bottom
+$(function(){
+	var bodyHSize = document.body.clientHeight;
+	var windowHSize = $(window).height();
+	//var bodyHSize = $(document).height();
+	var pageHSise = $('#page').height();
+	var footerHSise = $('footer').height();
 
+	//console.log(windowHSize+' and '+bodyHSize);
+	//alert('bodyHSize:'+bodyHSize+' windowHSize:'+windowHSize+' pageHSise:'+pageHSise+' footerHSise:'+footerHSise);
+	if (bodyHSize < windowHSize) {
+		var delta = windowHSize - bodyHSize;
+		$('#page').css({"min-height": pageHSise+delta});
+	};	
+
+});

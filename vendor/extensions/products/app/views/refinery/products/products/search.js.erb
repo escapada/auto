@@ -11,10 +11,10 @@ html =	"<h2><%= j product.carmodelsubtype.title %></h2>"+
 				"<%= j image_tag(photopath)%>"+
 			"</div>"+
 			"<div class='descr_div'>"+
-				"<div class='descr_head'><%= j product.carmodelsubtype.title %> <%= j product.carmodels.first.car.title %> <%= j product.carmodels.first.title %></div>"+
+				"<div class='descr_head'><%= j product.carmodels.first.title.truncate(40) %></div>"+
 				"<table class='descr_table' border='0' cellpadding='0' cellspacing='0' width='280'>"+
-					"<tr><td class='bold'>Производитьель:</td><td><%= j product.carmodels.first.car.title %></td></tr>"+
-					"<tr><td class='bold'>Описание:</td><td><span><%= j product.title %></span></td></tr>"+
+					"<tr><td class='bold'>Производитель:</td><td><%= j product.carmodels.first.car.title %></td></tr>"+
+					"<tr><td class='bold'>Описание:</td><td><span><%= j product.title.truncate(21) %></span></td></tr>"+
 					"<tr><td class='bold'>Состояние:</td><td><span><%= j product.condition %></span></td></tr>"+
 					"<tr><td class='bold'>Наличие:</td><td><span><%= j product.status %></td></span></tr>"+
 				"</table>"+
@@ -22,10 +22,10 @@ html =	"<h2><%= j product.carmodelsubtype.title %></h2>"+
 		"</div>"+
 		"<div class='descr_div_bottom'>"+
 			"<div class='descr_more'>"+
-				"<%= j link_to image_tag('more.jpg'), refinery.products_product_path(product), :remote => true %>"+
+				"<%= j link_to image_tag('more.png'), refinery.products_product_path(product), :remote => true %>"+
 			"</div>"+
 			"<div class='descr_price'>"+
-				"<div><%= product.price %> рублей</div>"+
+				"<div><%= product.price %> руб.</div>"+
 			"</div>"+
 		"</div>"+
 	"</div>";

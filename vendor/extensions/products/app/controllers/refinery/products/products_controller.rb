@@ -11,9 +11,10 @@ module Refinery
           tmpsub_ids=[]
           @products.each do |product|
             tmp_ids << product.carmodelsubtype.carmodeltype_id if !(tmp_ids.include?(product.carmodelsubtype.carmodeltype_id))
-            product.carmodels.each do |m|
-              tmpsub_ids << product.carmodelsubtype_id if !(tmpsub_ids.include?(product.carmodelsubtype_id))
-            end
+            tmpsub_ids << product.carmodelsubtype_id if !(tmpsub_ids.include?(product.carmodelsubtype_id))
+            # product.carmodels.each do |m|
+            #   tmpsub_ids << product.carmodelsubtype_id if !(tmpsub_ids.include?(product.carmodelsubtype_id))
+            # end
           end
           logger.debug("//////////////////////// ARRAY OF IDs #{tmp_ids} ///////////////////AND SUBIDs  #{tmpsub_ids} ")
 
@@ -24,6 +25,7 @@ module Refinery
 
         else
           @items = Refinery::Items::Item.all
+          @items.select! {|e| e.photos.present?}  #rewrite
           @items.shuffle!
 
           @vw = Carmodel.includes(:car, :products).where('cars.title' => 'VW')

@@ -1,0 +1,66 @@
+////$(function) is the same $(document).ready(function)
+$(function() {
+
+	//universal block for managing tree categories 
+	if (typeof $('.categories') != "undefined") {
+		
+		$('.display_value').click(function(){
+			$(this).next().toggle();
+		});
+
+		$('.category_wrap').click(function() {
+			$(this).next().toggle();
+			if ($('.plus span', this).text() == '+') {
+				$('.plus span', this).text('-');
+			} else{
+				$('.plus span', this).text('+');
+			};
+		});
+
+		$('.position').click(function() {
+			var name = $(this).text();
+			var id = $(this).attr('positionid');
+			console.log('name: '+name+'   id: '+id);
+			console.log($(this).closest('.categories').prev().text());
+
+			$(this).closest('.categories').prev().text(name);
+			$(this).closest('.categories').prev().prev().val(id);
+			//check, if the model checked > set type to nil (reset i mean before submiting)
+			if ($(this).attr('ismodel')==1){
+				$('#type_filter input').val('');
+				resetform();
+			} else {
+				$(this).closest('form').submit();
+			};
+		});
+
+		$('.reset_pos').click(function() {
+			$('#model').val('');
+			$('#type').val('');
+			$('#model').next().text('Выбрать модель');
+			$('#type').next().text('Выбрать подтип');
+			//$(this).closest('form').submit();
+			resetform();
+		});
+
+	
+	}//end of if categories
+
+
+
+});//end of document ready
+
+////////////////functions helpers
+function resetform(){
+	$.ajax({
+		url: '/admin/reset_session',
+		type: 'POST',
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+		//data: 'title='+title+'&carmodeltype_id='+typeid,
+		//dataType: "json",
+		success: function(tmp){
+		console.log(tmp);
+		$('form').submit();
+		}
+	});
+}

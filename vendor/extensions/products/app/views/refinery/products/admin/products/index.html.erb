@@ -3,6 +3,11 @@
 </section>
 <aside id='actions'>
   <%= render 'actions' %>
+	<%= render 'filterside' %>
 </aside>
 <%= render '/refinery/admin/make_sortable', :tree => false if !searching? and ::Refinery::Products::Admin::ProductsController.sortable? and ::Refinery::Products::Product.many? %>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'admin_products_index_filter' %>
+<% end %>
 

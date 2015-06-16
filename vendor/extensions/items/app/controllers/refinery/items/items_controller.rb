@@ -23,7 +23,7 @@ module Refinery
 
       def find_all_items
         #@items = Item.order('position ASC').includes(:photos).where('item_photos.main = "true"')
-        @items = Item.includes(:photos).order('position ASC').where('item_photos.main = ?', true)
+        @items = Item.includes(:photos).order('position DESC').where('item_photos.main = ?', true)
         #User.includes(:addresses).where("addresses.country = ?", "Poland")
         
         #@photos = ItemPhoto.includes(:item).where('main = ?', true)

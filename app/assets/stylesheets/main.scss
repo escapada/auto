@@ -1,6 +1,5 @@
 *{margin:0; padding:0; font-size: 12px; font-family: helvetica, arial, sans-serif; list-style-type:none; text-decoration:none;}
-body{}
-
+body{/*height: 100%;*/}
 h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 
 #page{padding: 30px 0 0 0;}
@@ -26,7 +25,8 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 
 .wrap{width:940px; margin: 0 auto;}
 
-#footer{ border-top: #aaa dotted 1px; padding: 15px 0; margin:20px 0 0;}
+footer{height: 153px; margin-top: 20px;}
+#footer{ border-top: #aaa dotted 1px; padding: 15px 0;  /*padding: 15px 0; margin:20px 0 0;*/}
 
 .item_prw{ width:293px; border: #aaa dotted 1px; float: left; margin-bottom:15px;}
 .odd{ margin-right: 30px;}
@@ -60,7 +60,7 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 #carsearch-right{float: right; width: 320px; text-align: right;}
 .column{ width:154px; min-height: 380px; float: left; border-right: 1px dotted #aaa;} 
 .column.last{ border:none;} 
-.column ul{ padding: 0 20px 20px 20px; margin-top: 20px;} 
+.column ul{ padding: 0 7px 20px 20px; margin-top: 20px;} 
 .column ul li{ margin-bottom: 3px;} 
 .column ul a{color: #000; } 
 .car_img{width: inherit; text-align: left; padding-left: 20px;} 
@@ -72,11 +72,11 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 #tree{ float: left; margin-left: 100px; clear: both;}
 #tree a{color: #000;}
 .tree_type{clear: both; cursor: pointer;}
-.tree_typename_wrap{ margin-bottom: 1px;}
+.tree_typename_wrap{ margin-bottom: 4px; height: 16px;}
 .tree_plus{width:15px; height:15px; border: 1px dotted #aaa; color: #aaa; float: left; line-height: 14px; text-align: center;}
-.tree_typename{text-align: left; margin: 0 0 0 10px; display: inline;}
-.tree_subtype{ clear: both; background: url(lftdotted.png) repeat-y left; padding-left: 34px; display:none;}
-.subtype_li{cursor: pointer;}
+.tree_typename{text-align: left; line-height: 16px; margin: 0 0 0 10px; display: inline;}
+.tree_subtype{ clear: both; margin-top: 4px; background: url(lftdotted.png) repeat-y left; padding-left: 34px; display:none;}
+.subtype_li{cursor: pointer; margin-bottom: 4px;}
 
 .head_product{ width: 100%;}
 .head_product div{float:left; width: 81px; text-align: center;}
@@ -97,7 +97,7 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
 .descr_div_bottom{ height: 60px; clear: both;}
 .descr_more{ height: 60px; text-align: center; line-height: 60px; width: 210px; float: left;}
 .descr_price{ height: 60px; width: 327px; border-left: 1px dotted #aaa; text-align: center; float: right;}
-.descr_price div{ width:277px; height:41px; margin: 0 auto; line-height:41px; background: url(price_bg.jpg) no-repeat; font-weight: bold; font-size: 18px;}
+.descr_price div{ width:277px; height:43px; margin: 0 auto; line-height:43px; background: url(price_bg.png) no-repeat; font-weight: bold; font-size: 18px;}
 .descr_head{ height: 41px; line-height: 41px; background: #eee; text-align: center; font-size: 16px; font-weight: bold; border-bottom: 1px dotted #aaa;}
 
 /*////////////display news block*/

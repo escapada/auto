@@ -40,19 +40,34 @@
 #new_product{}
 #add_model_div{float: left;}
 #add_type_div{float: left; margin-left: 20px;}
-#name_div{clear:left; float: left;margin-right: 20px;}
+#name_div{margin-bottom: 5px;/*clear:left; float: left;margin-right: 20px;*/}
 #cond_div{float: left;margin-right: 20px;}
 #status_div{float: left; margin-bottom: 15px;}
-#price_div{float: left; margin-right: 20px;}
+#price_div{clear:left;float: left; margin-right: 20px;}
 #new_product .form-actions{clear: both;  display: block;}
 .edit_product .form-actions{clear: both;  display: block;}
 
+.edit_item select, .new_item select, .edit_product select, .new_product select{height: 24px; border:1px solid #7f9db9; background: none;}
 
 #show_adding{line-height: 16px; cursor: pointer;}
 
+/*/////////////////////filter admin right-side block///////////////////////////*/
+#filterside{width: 300px;}
+#car_filter{margin-bottom: 10px;}
+#type_filter{}
+.display_value{width: 269px; padding: 9px 12px; border:1px solid #65C3F7; cursor: pointer;}
+.categories{display: none; width: 283px; padding:10px 0 10px 10px!important;	border:1px solid #65C3F7; border-top:none; margin-bottom: 0px!important;}
+.categories li{line-height: 16px; margin-bottom: 3px!important;}
+.reset_pos{cursor: pointer; margin-bottom: 10px;}
+.reset_pos span{border-bottom:1px dotted;}
+.category_wrap{clear: both; cursor: pointer;/* width:295px;*/}
+.plus{width:15px; height:15px; border: 1px dotted #aaa; color: #aaa; float: left; line-height: 14px; text-align: center;}
+.category_name{ padding-left: 21px;}
+.positions{clear: both; background: url(lftdotted.png) repeat-y left; padding-left: 20px!important; margin-bottom: 3px!important; display:none;}
+/*.positions li{margin-bottom: 3px!important;}*/
+.position{cursor: pointer; width: 100%;}
+
 /*////////////////////////////////////////////////*/
-
-
 
 .add_carmodel_to_product{cursor: pointer;}
 .delete_carmodel_from_product{}
@@ -62,3 +77,4 @@
 
 /*/////////////////////////hide Refinery LOGO*/
 #site_bar_refinery_cms_logo{display: none;}
+#hide_items_wysiwyg{display: none;																																																																								}

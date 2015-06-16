@@ -2,6 +2,13 @@
   <%= render '/refinery/admin/error_messages',
               :object => @product,
               :include_object_name => true %>
+  
+  <div id="name_div">
+    <div class='field'>
+      <%= f.label :title -%>
+      <%= f.text_field :title, :size => 101 -%>
+    </div>
+  </div>
 
   <div id="add_model_div">
     <div class='field'>
@@ -41,18 +48,12 @@
         </div>
         <%= f.hidden_field(:carmodelsubtype_id) -%>
       <% else %>
-        <%= f.hidden_field(:carmodelsubtype_id, :value => "") -%>
+        <%= f.hidden_field(:carmodelsubtype_id, :value => nil) -%>
       <% end %>
     </div>
   </div>
 
 <!-- ///////////////////////// -->
-  <div id="name_div">
-    <div class='field'>
-      <%= f.label :title -%>
-      <%= f.text_field :title -%>
-    </div>
-  </div>
   
   <div id="price_div">
     <div class='field'>
@@ -64,14 +65,14 @@
   <div id="cond_div">
     <div class='field'>
       <%= f.label :condition -%>
-      <%= f.select(:condition, ["Плохое","Среднее","Отличное"]) -%>
+      <%= f.select(:condition, ["Отличное", "Среднее", "Плохое"]) -%>
     </div>
   </div>
 
   <div id="status_div">
     <div class='field'>
       <%= f.label :status -%>
-      <%= f.select(:status, ["Отсутствует","На складе"]) -%>
+      <%= f.select(:status, ["На складе", "Отсутствует"]) -%>
     </div>
   </div>
 

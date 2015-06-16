@@ -2,34 +2,46 @@
 <h1>ПОИСК ЗАПЧАСТЕЙ ПО МАРКЕ АВТОМОБИЛЯ</h1>
 	<div class="column">
 		<div class="car_img">
-			<%= image_tag(@vw.first.car.title.downcase+'.png')%>
+			<%#= image_tag(@vw.first.car.title.downcase+'.png')%>
+			<%= image_tag('vw.png')%>
 		</div>
 		<ul>
-			<% @vw.each do |name| %><li><%= link_to name.title, refinery.products_modelid_path(:search => name.id), :method => "post" %></li><% end %>
+			<% if @vw.present? %>
+				<% @vw.each do |name| %><li><%= link_to name.title.truncate(21), refinery.products_modelid_path(:search => name.id), :method => "post", :title => name.title %></li><% end %>
+			<% end %>
 		</ul>
 	</div>
 	<div class="column">
 		<div class="car_img">
-			<%= image_tag(@audi.first.car.title.downcase+'.png')%>
+			<%#= image_tag(@audi.first.car.title.downcase+'.png')%>
+			<%= image_tag('audi.png')%>
 		</div>
 		<ul>
-			<% @audi.each do |name| %><li><%= link_to name.title, refinery.products_modelid_path(:search => name.id), :method => "post" %></li><% end %>
+			<% if @vw.present? %>
+				<% @audi.each do |name| %><li><%= link_to name.title.truncate(21), refinery.products_modelid_path(:search => name.id), :method => "post", :title => name.title %></li><% end %>
+			<% end %>
 		</ul>
 	</div>
 	<div class="column">
 		<div class="car_img">
-			<%= image_tag(@skoda.first.car.title.downcase+'.png')%>
+			<%#= image_tag(@skoda.first.car.title.downcase+'.png')%>
+			<%= image_tag('skoda.png')%>
 		</div>
 		<ul>
-			<% @skoda.each do |name| %><li><%= link_to name.title, refinery.products_modelid_path(:search => name.id), :method => "post" %></li><% end %>
+			<% if @vw.present? %>
+				<% @skoda.each do |name| %><li><%= link_to name.title.truncate(21), refinery.products_modelid_path(:search => name.id), :method => "post", :title => name.title %></li><% end %>
+			<% end %>
 		</ul>
 	</div>
 	<div class="column last">
 		<div class="car_img">
-			<%= image_tag(@seat.first.car.title.downcase+'.png')%>
+			<%#= image_tag(@seat.first.car.title.downcase+'.png')%>
+			<%= image_tag('seat.png')%>
 		</div>
 		<ul>
-			<% @seat.each do |name| %><li><%= link_to name.title, refinery.products_modelid_path(:search => name.id), :method => "post" %></li><% end %>
+			<% if @vw.present? %>
+				<% @seat.each do |name| %><li><%= link_to name.title.truncate(21), refinery.products_modelid_path(:search => name.id), :method => "post", :title => name.title %></li><% end %>
+			<% end %>
 		</ul>
 	</div>
 

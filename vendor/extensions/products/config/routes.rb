@@ -29,9 +29,12 @@ Refinery::Core::Engine.routes.draw do
       match 'model_new', to: 'products#model_new', :as => :modelnew, via: [:post]
       match 'model_delete', to: 'products#model_delete', :as => :modeldelete, via: [:post]
       match 'model_update', to: 'products#model_update', :as => :modelupdate, via: [:post]
-      ##
-      match 'set_filter', to: 'products#set_filter', :as => :setfilter, via: [:post]
+      ##to display filtered list of products in products admin index view (NOT AJAX)
+      match 'set_filter', to: 'products#set_filter', :as => :setfilter, via: [:get]
+      match 'reset_session', to: 'products#reset_session', :as => :resetsession, via: [:post]
 
+      ##filter lists of models/types trees in products admin index view (NOT AJAX)
+      ##match 'filter', to: 'products#filter', :as => :filter, via: [:post]
 
     end
   end

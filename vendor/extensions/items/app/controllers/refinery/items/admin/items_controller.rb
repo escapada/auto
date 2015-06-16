@@ -5,6 +5,8 @@ module Refinery
 
         crudify :'refinery/items/item',
                 :title_attribute => 'title',
+                :order => "position DESC",
+                :sortable => false,
                 :xhr_paging => true
 
         def imgs

@@ -49,6 +49,7 @@ Auto::Application.configure do
   config.assets.precompile += %w( add_style.css )
   config.assets.precompile += %w( admin_products.js )
   config.assets.precompile += %w( admin_products_index.js )
+  config.assets.precompile += %w( admin_products_index_filter.js )
   config.assets.precompile += %w( gmap.js )
 
   # Disable delivery errors, bad email addresses will be ignored

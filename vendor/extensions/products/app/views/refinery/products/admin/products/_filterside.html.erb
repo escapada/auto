@@ -1,0 +1,56 @@
+<div id="filterside">
+<div class="reset_pos"><span>Убрать фильтр</span></div>
+  <%=form_tag refinery.products_admin_products_path, :method => 'get' do%>
+  <div id="car_filter">
+    <%= hidden_field_tag(:model, lambda{ @filter_model.blank? ?  '' : @filter_model.id}.call) %>
+    <div class="display_value"><%= lambda{ @filter_model.blank? ?  'Выбрать модель' : @filter_model.title}.call %></div>
+    <ul class="categories">
+      <% if @carcategories.present? %>
+        <% @carcategories.each do |car| %>
+          <li class="category_wrap">
+            <div class="plus">
+              <span>+</span>
+            </div>
+            <div class="category_name">
+              <%= car.title %>
+            </div>
+          </li>
+          <ul class="positions">
+            <% car.carmodels.each do |model|%>
+              <li class="position" positionid="<%=model.id%>" ismodel="1"><%= model.title %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+      <%# else %>
+      <% end %>
+    </ul>
+  </div>
+  <div id="type_filter">
+    <%= hidden_field_tag(:type, lambda{ @filter_type.blank? ?  '' : @filter_type.id}.call) %>
+    <div class="display_value"><%= lambda{ @filter_type.blank? ?  'Выбрать подтип' : @filter_type.title}.call %></div>
+    <ul class="categories">
+      <% if @typecategories.present? %>
+        <% @typecategories.each do |type| %>
+          <li class="category_wrap">
+            <div class="plus">
+              <span>+</span>
+            </div>
+            <div class="category_name">
+              <%= type.title %>
+            </div>
+          </li>
+          <ul class="positions">
+            <% type.carmodelsubtypes.each do |subtype|%>
+              <li class="position" positionid="<%=subtype.id%>"><%= subtype.title %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+      <%# else %>
+      <% end %>
+    </ul>
+  </div>
+  <%#= submit_tag("Фильтровать") %>
+  <% end %>   <!-- end of form -->
+</div>

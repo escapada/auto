@@ -10,15 +10,15 @@
 
   <div class='field'>
     <%= f.label :title -%>
-    <%= f.text_field :title -%>
+    <%= f.text_field :title, :size => 101 -%>
   </div>
 
   <div class='field'>
     <%= f.label :meta -%>
-    <%= f.text_field :meta -%>
+    <%= f.text_field :meta, :size => 101 -%>
   </div>
 
-  <div class='field'>
+  <div class='field' id="hide_items_wysiwyg">
     <%= render '/refinery/admin/wysiwyg',
                 :f => f,
                 :fields => [:description],

@@ -1,6 +1,7 @@
 Refinery::PagesController.class_eval do
 	def home
 		@items = Refinery::Items::Item.all
+    @items.select! {|e| e.photos.present?}  #rewrite
     @items.shuffle!
 
     @vw = Refinery::Products::Carmodel.includes(:car, :products).where('cars.title' => 'VW')
