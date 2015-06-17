@@ -1,39 +1,40 @@
 *{margin:0; padding:0; font-size: 12px; font-family: helvetica, arial, sans-serif; list-style-type:none; text-decoration:none;}
 body{/*height: 100%;*/}
-h1{ font-size: 22px; line-height: 28px; font-weight: normal;}
+h1{ font-size: 22px; line-height: 28px; font-weight: normal; margin-bottom: 20px;}
 
 #page{padding: 30px 0 0 0;}
 #body{width: 620px; float:left;}
-#side_body{float: right; width: 320px; padding: 29px 0 0;} 
+#side_body{float: right; width: 320px;} 
 
 /*home-page wide width. all others two columns*/
 #home-page #body{width: 100%;}
 #products-page #body{width: 100%;}
 #news-page #body{width: 100%;}
 /**/
+#now-page #side_body{float: right; width: 320px; padding: 48px 0 0;} 
 
 .topmargin{margin-top:0;}
 
 #header100{width: 100%;}
 #header{max-width: 1919px; margin: 0 auto; height: 199px; background: url(header_bg.jpg) no-repeat center; }
-#headertxtline{width:100%; height:40px; background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)";}
+#headertxtline{width:100%; height:40px; background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)"; div{font-size: 14px;}}
 #leftinfo{width:30%; height:100%; line-height: 40px; text-align: left; float: left;}
 #rightinfo{width:70%; height:100%; line-height: 40px; text-align: right; float: right;}
-#topmenu100{max-width: 1919px; margin: 0 auto; height:48px; border-top: 1px solid #eee; border-bottom: 2px solid #ddd;/*clear: right;*/}
-#menu li{float:left; line-height:50px; margin: 0 15px 0 0; a{color:#aaa;}}
+#topmenu100{max-width: 1919px; margin: 0 auto; height:48px; border-top: 3px solid #999; border-bottom: 3px solid #999;/*clear: right;*/}
+#menu li{float:left; line-height:50px; margin: 0 15px 0 0; a{color:#777; font-size: 14px;}}
 .selected a, a:hover{color:#000 !important;} 
 
 .wrap{width:940px; margin: 0 auto;}
 
-footer{height: 153px; margin-top: 20px;}
-#footer{ border-top: #aaa dotted 1px; padding: 15px 0;  /*padding: 15px 0; margin:20px 0 0;*/}
+footer{height: 168px; margin-top: 20px; border-top: #aaa dotted 1px; }
+#footer{ padding-top: 15px;  /*padding: 15px 0; margin:20px 0 0;*/}
 
 .item_prw{ width:293px; border: #aaa dotted 1px; float: left; margin-bottom:15px;}
 .odd{ margin-right: 30px;}
 .even{ margin-right: 0;}
 .item_info{ height: 70px;}
-.item_info img{ float: left; margin: 5px 5px 0 5px;}
-.items_txt{ line-height: 19px; text-align: center; font-size: 14px; padding:5px 5px 0 0;}
+.item_info img{ float: left; margin-top: 12px; padding: 0 10px}
+.items_txt{ line-height: 19px; text-align: left; font-size: 14px; padding:5px 5px 0 0;}
 
 #banner_search{ width: 290px; height: 290px; background: url(banner_bg.jpg) no-repeat; margin-left: 30px;}
 #banner_call{ margin:30px 0 30px 30px;}
@@ -49,7 +50,7 @@ footer{height: 153px; margin-top: 20px;}
 .prw_photo{margin-right: 30px;}
 .prw_photo.last{margin-right: 0;}
 .mating{background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)";}
-#similar{display:inline-block; margin:30px 0;}
+#similar{display:inline-block; margin:30px 0 10px 0;}
 #similar h2{float:left; margin:0; width: 128px; font-weight: normal;}
 .similar_prw{float:right; margin-left: 30px;  width: 216px;}
 
@@ -65,8 +66,8 @@ footer{height: 153px; margin-top: 20px;}
 .column ul a{color: #000; } 
 .car_img{width: inherit; text-align: left; padding-left: 20px;} 
 
-#examples{ /*display:inline-block;*/ border-top: 1px dotted #aaa; padding-top: 20px; }
-.random_prw{ float: left; margin:0 20px 20px 0;}
+#examples{ /*display:inline-block;*/ border-top: 1px dotted #aaa; padding: 20px 0; }
+.random_prw{ float: left; margin-right:20px;}
 .random_prw.last{ float: left; margin-right:0!important;}
 
 #tree{ float: left; margin-left: 100px; clear: both;}
@@ -126,9 +127,9 @@ footer{height: 153px; margin-top: 20px;}
 .car_sign_wrap{ margin: 25px 0 0 55px;}
 .car_sign{float:left; margin: 0 40px 40px 0;}
 #home-page #body .inner{border-top: 1px dotted #aaa; padding:20px 0;}
-#home-page #body p{padding-top: 15px; font-size: 14px; }
+#home-page #body p{padding-bottom: 10px; font-size: 14px; }
 #home-page #body ul li{ font-size: 14px; line-height: 17px; }
-#home-page #body ul{ padding-left: 50px;}
+#home-page #body ul{ padding: 0 0 10px 50px;}
 #info_block{ width: 100%; margin-top: 20px;}
 #info_money { width:313px; height: 100px; background: url(money_icon.png) no-repeat 0 0; float: left;}
 #info_money div{ width:215px; margin-left: 80px;}

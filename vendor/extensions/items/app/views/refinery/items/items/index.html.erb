@@ -7,7 +7,7 @@
 			<%= link_to image_tag(photo.image.url(:medium)), refinery.items_item_path(item) if photo.main %>
 		<% end if item.photos.present? %>
 		<div class="item_info">
-			<%=image_tag(item.model.downcase+'.png')%>
+			<%=image_tag(item.model.downcase+'.png', {:height=>48})%>
 			<div class="items_txt">
 				<%= item.title %>
 			</div>
