@@ -9,7 +9,8 @@
 		<div class="item_info">
 			<%=image_tag(item.model.downcase+'.png', {:height=>48})%>
 			<div class="items_txt">
-				<%= item.title %>
+				<%= item.title %><br />
+				<%= item.description if item.description.present? %>
 			</div>
 		</div>
 	</div>

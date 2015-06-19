@@ -17,16 +17,17 @@ h1{ font-size: 22px; line-height: 28px; font-weight: normal; margin-bottom: 20px
 
 #header100{width: 100%;}
 #header{max-width: 1919px; margin: 0 auto; height: 199px; background: url(header_bg.jpg) no-repeat center; }
-#headertxtline{width:100%; height:40px; background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)"; div{font-size: 14px;}}
+/*#headertxtline{width:100%; height:40px; background: #eee; filter:alpha(opacity=50); opacity:.50; -khtml-opacity: 0.50;	-moz-opacity: 0.50;	-ms-filter:"alpha(opacity=50)";}*/
+#headertxtline{width:100%; height:40px; div{font-size: 14px;}}
 #leftinfo{width:30%; height:100%; line-height: 40px; text-align: left; float: left;}
 #rightinfo{width:70%; height:100%; line-height: 40px; text-align: right; float: right;}
-#topmenu100{max-width: 1919px; margin: 0 auto; height:48px; border-top: 3px solid #999; border-bottom: 3px solid #999;/*clear: right;*/}
-#menu li{float:left; line-height:50px; margin: 0 15px 0 0; a{color:#777; font-size: 14px;}}
+#topmenu100{max-width: 1919px; margin: 0 auto; height:48px; border-top: 2px solid #999; border-bottom: 2px solid #999;/*clear: right;*/}
+#menu li{float:left; line-height:50px; margin: 0 15px 0 0; a{color:#6d6e70; font-size: 14px;}}
 .selected a, a:hover{color:#000 !important;} 
 
 .wrap{width:940px; margin: 0 auto;}
 
-footer{height: 168px; margin-top: 20px; border-top: #aaa dotted 1px; }
+footer{height: 150px; margin-top: 20px; border-top: #aaa dotted 1px; }
 #footer{ padding-top: 15px;  /*padding: 15px 0; margin:20px 0 0;*/}
 
 .item_prw{ width:293px; border: #aaa dotted 1px; float: left; margin-bottom:15px;}
@@ -36,13 +37,16 @@ footer{height: 168px; margin-top: 20px; border-top: #aaa dotted 1px; }
 .item_info img{ float: left; margin-top: 12px; padding: 0 10px}
 .items_txt{ line-height: 19px; text-align: left; font-size: 14px; padding:5px 5px 0 0;}
 
+#banners_on_product_search{float: right; text-align: right;}
 #banner_search{ width: 290px; height: 290px; background: url(banner_bg.jpg) no-repeat; margin-left: 30px;}
 #banner_call{ margin:30px 0 30px 30px;}
 .banner_txt{ width:290px; text-align: center; padding:17px 0;}
 .banner_txt span{ font-size: 10px; font-weight: bold; color: #fff;}
 .item_head{ height:70px; border-top: #aaa dotted 1px; border-bottom: #aaa dotted 1px;}
 .item_head img{ float: left; margin: 11px 10px 0 5px;}
-.item_txt{ line-height: 70px; text-align: left; font-size: 14px;}
+.item_txt{padding-left: 75px;}
+.item_txt h2{ line-height: 18px; font-size: 16px; margin-top: 20px;}
+.item_txt h3{ line-height: 16px; font-size: 14px; font-weight: normal;}
 
 #image_container{margin-top: 30px; width:620px; height: 373px;}
 #prw_container{margin-top: 30px;}
@@ -56,18 +60,22 @@ footer{height: 168px; margin-top: 20px; border-top: #aaa dotted 1px; }
 
 /*///////////////part of car names search block on first and search pages. + tree view*/
 /*////////////display searchcar block (main and products pages)*/
-#carsearch{width: 620px; float:left;}
+#carsearch{width: 940px;}
 #carsearch h1{margin-bottom: 20px;}
-#carsearch-right{float: right; width: 320px; text-align: right;}
-.column{ width:154px; min-height: 380px; float: left; border-right: 1px dotted #aaa;} 
-.column.last{ border:none;} 
-.column ul{ padding: 0 7px 20px 20px; margin-top: 20px;} 
-.column ul li{ margin-bottom: 3px;} 
-.column ul a{color: #000; } 
+#table_cars{ border:1px dotted #aaa;
+	thead{background: #d1d2d4; tr{height:140px;}}
+	td{width: 234px; text-align: center; border-right:1px dotted #aaa;}
+	.last{width: 233px;  border:none;}
+	ul{ padding: 0 10px 17px 10px; margin-top: 20px;} 
+	ul li{ margin-bottom: 3px;}
+	ul a{color: #000; }
+	ul a:hover{color:#999!important;} 
+}
+
 .car_img{width: inherit; text-align: left; padding-left: 20px;} 
 
-#examples{ /*display:inline-block;*/ border-top: 1px dotted #aaa; padding: 20px 0; }
-.random_prw{ float: left; margin-right:20px;}
+#examples{ /*display:inline-block; border-top: 1px dotted #aaa;*/ padding: 22px 0 0 0; }
+.random_prw{ float: left; margin:0 20px 20px 0;}
 .random_prw.last{ float: left; margin-right:0!important;}
 
 #tree{ float: left; margin-left: 100px; clear: both;}
@@ -79,13 +87,17 @@ footer{height: 168px; margin-top: 20px; border-top: #aaa dotted 1px; }
 .tree_subtype{ clear: both; margin-top: 4px; background: url(lftdotted.png) repeat-y left; padding-left: 34px; display:none;}
 .subtype_li{cursor: pointer; margin-bottom: 4px;}
 
-.head_product{ width: 100%;}
+.head_product{ width: 100%; border-bottom: 1px dotted #aaa; padding-bottom: 10px; margin-bottom:10px; }
 .head_product div{float:left; width: 81px; text-align: center;}
 .head_product h1{line-height: 58px; display: inline; margin-left: 20px;}
 
 /*////////////display products block*/
-#showproducts{float: right;}
-#showproducts h2{ font-size: 20px; margin-bottom: 20px;}
+/*//////breadcrumbs block */
+#breadcrumbs{margin-bottom:10px; color:#aaa;  a{color: #aaa; font-size: 15px;} a:hover{color: #000;}}
+.bread_current{color: #000; font-size: 15px;}
+/**/
+#showproducts_wrap{float: right;}
+#showproducts h2{ font-size: 20px; margin-bottom: 15px;}
 .description_block{width: 540px; border: 1px dotted #aaa; margin-bottom: 20px;}
 .descr_div_top{ height: 170px; clear: both;}
 .img_div{ text-align: center; height: 170px; width: 210px; float:left;}
@@ -98,8 +110,19 @@ footer{height: 168px; margin-top: 20px; border-top: #aaa dotted 1px; }
 .descr_div_bottom{ height: 60px; clear: both;}
 .descr_more{ height: 60px; text-align: center; line-height: 60px; width: 210px; float: left;}
 .descr_price{ height: 60px; width: 327px; border-left: 1px dotted #aaa; text-align: center; float: right;}
-.descr_price div{ width:277px; height:43px; margin: 0 auto; line-height:43px; background: url(price_bg.png) no-repeat; font-weight: bold; font-size: 18px;}
+.descr_price div{ width:269px; height:36px; margin: 0 auto; line-height:36px; background: url(price_bg_.png) no-repeat; font-weight: bold; font-size: 18px;}
 .descr_head{ height: 41px; line-height: 41px; background: #eee; text-align: center; font-size: 16px; font-weight: bold; border-bottom: 1px dotted #aaa;}
+/*//// more-description block*/
+.more_block{width: 540px;
+	img{ margin-bottom: 20px;}
+	table tr{ 
+		span{display: block; line-height: 18px; padding: 7px 0; font-size: 14px;}
+		.left{ width:140px; text-align: right; border-right: 1px dotted #aaa; span{padding-right: 10px;}}
+		.right{text-align: left; span{padding-left: 10px;}}
+	}
+	.fon{background: #e6e7e8; td{border-top: 1px dotted #aaa; border-bottom: 1px dotted #aaa;}}
+}
+/*////*/
 
 /*////////////display news block*/
 #news-page h1{width: 100%; margin-bottom: 20px; border-bottom: 1px dotted #aaa; clear: both;}

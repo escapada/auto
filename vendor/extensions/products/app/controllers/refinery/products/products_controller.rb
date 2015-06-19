@@ -52,13 +52,12 @@ module Refinery
           @cars << carmodel.car.title if !(@cars.include?(carmodel.car.title))
         end
 
-
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @product in the line below:
         
-
         respond_to do |format|
           format.js
+          format.html
         end
 
         #present(@page)
@@ -71,9 +70,19 @@ module Refinery
         @car_name=@products.first.carmodels.first.car.title
         @model_name=@products.first.carmodels.first.title
 
+        ############### need to build breadcrumbs (madness!!!)
+        session[:model_id] = params[:model]
+        session[:subtype_id] =  params[:subtype]
+        session[:car_name] =  @car_name
+        session[:model_name] =  @model_name
+        session[:type_name] =  @products.first.carmodelsubtype.carmodeltype.title
+        session[:subtype_name] =  @products.first.carmodelsubtype.title
+        ###############
+
 
         respond_to do |format|
           format.js
+          #format.html
         end
       end
 
@@ -83,6 +92,9 @@ module Refinery
         if (params[:search])
           @skip = true
           @model_id = params[:search]
+          ##need for breadcrumbs (madness)
+          session[:model_id] = @model_id
+          ##
           @carmodels = Carmodel.includes(:products).where(id:@model_id)
           if (@carmodels.any? { |e| e.products.any? })
             @products=Product.includes(:carmodels, :carmodelsubtype).where('carmodels.id' => @model_id)

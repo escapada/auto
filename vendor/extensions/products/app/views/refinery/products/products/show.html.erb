@@ -1,51 +1,37 @@
-<% content_for :body_content_title do %>
-  <%= @product.title %>
-<% end %>
-
+<% @product.photos.any? ? photopath=@product.photos.first.image.url(:thumb) : photopath=@car_name.downcase+'.png' %>
 <% content_for :body do %>
-  <section>
-    <h1>Title</h1>
-    <p>
-      <%=raw @product.title %>
-    </p>
-  </section>
-  <section>
-    <h1>Carmodelsubtype</h1>
-    <p>
-      <%=raw @product.carmodelsubtype_id %>
-    </p>
-  </section>
-  <section>
-    <h1>Condition</h1>
-    <p>
-      <%=raw @product.condition %>
-    </p>
-  </section>
-  <section>
-    <h1>Status</h1>
-    <p>
-      <%=raw @product.status %>
-    </p>
-  </section>
-  <section>
-    <h1>Price</h1>
-    <p>
-      <%=raw @product.price %>
-    </p>
-  </section>
-<% end %>
-
-<% content_for :side_body do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="products">
-      <% @products.each do |product| %>
-        <li>
-          <%= link_to product.title, refinery.products_product_path(product) %>
-        </li>
+  <div id="showproducts">
+    <h2><%= @product.carmodelsubtype.title %></h2>
+    <div class='more_block'>
+      <% if @product.photos.any? %>
+        <%= image_tag(@product.photos.first.image.url(:big), {:title=>@product.title, :width=>540}) %>
+      <% else %>
+        <%= image_tag(@car_name.downcase+'.png') %>
       <% end %>
-    </ul>
-  </aside>
-<% end %>
+      <table cellspacing="0" cellpadding="0" width="540">
+        <tr class="fon">
+          <td valign="top" class="left"><strong><span>Производитель:</span></strong></td>
+          <td class="right"><span><% @cars.each do |car| %><%= car %>&nbsp;<% end %></span></td>
+        </tr>
+        <tr>
+          <td valign="top" class="left"><strong><span>Описание:</span></strong></td>
+          <td class="right"><span><%= @product.title %></span></td>
+        </tr>
+        <tr class="fon">
+          <td valign="top" class="left"><strong><span>Состояние:</span></strong></td>
+          <td class="right"><span><%= @product.condition %></span></td>
+        </tr>
+        <tr>
+          <td valign="top" class="left"><strong><span>Наличие:</span></strong></td>
+          <td class="right"><span><%= @product.status %></span></td>
+        </tr>
+        <tr class="fon">
+          <td valign="top" class="left"><strong><span>Стоимость:</span></strong></td>
+          <td class="right"><span><%= @product.price %> руб.</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
+<% end %>
 <%= render '/refinery/content_page' %>

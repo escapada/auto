@@ -14,15 +14,13 @@
   </div>
 
   <div class='field'>
-    <%= f.label :meta -%>
-    <%= f.text_field :meta, :size => 101 -%>
+    <%= f.label :description -%>
+    <%= f.text_field :description, :size => 101 -%>
   </div>
 
-  <div class='field' id="hide_items_wysiwyg">
-    <%= render '/refinery/admin/wysiwyg',
-                :f => f,
-                :fields => [:description],
-                :object => "items/item" -%>
+  <div class='field'>
+    <%= f.label :meta -%>
+    <%= f.text_field :meta, :size => 101 -%>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,

@@ -1,31 +1,39 @@
-<% @product.photos.any? ?  photopath=@product.photos.first.image.url(:thumb) : photopath=@car_name.downcase+'.png' %>
-
 $("#showproducts").html('');
-
-html =	"<h2><%= j @product.carmodelsubtype.title %></h2>"+
-	"<div class='description_block'>"+
-		"<div class='descr_div_top'>"+
-			"<div class='img_div'>"+
-				"<%= j image_tag(photopath) %>"+
-			"</div>"+
-			"<div class='descr_div'>"+
-				"<div class='descr_head'><%= j @product.carmodelsubtype.title %> <% @cars.each do |car| %><%= car %>&nbsp;<% end %> </div>"+
-				"<table class='descr_table' border='0' cellpadding='0' cellspacing='0' width='280'>"+
-					"<tr><td class='bold'>Производитель:</td><td><% @cars.each do |car| %><%= car %>&nbsp;<% end %></td></tr>"+
-					"<tr><td class='bold'>Описание:</td><td><span><%= j @product.title.truncate(21) %></span></td></tr>"+
-					"<tr><td class='bold'>Состояние:</td><td><span><%= j @product.condition %></span></td></tr>"+
-					"<tr><td class='bold'>Наличие:</td><td><span><%= j @product.status %></td></span></tr>"+
-				"</table>"+
-			"</div>"+
-		"</div>"+
-		"<div class='descr_div_bottom'>"+
-			"<div class='descr_more'>"+
-				"<%#= j link_to image_tag('more.png'), refinery.products_product_path(5), :remote => true %>"+
-			"</div>"+
-			"<div class='descr_price'>"+
-				"<div><%= @product.price %> рублей</div>"+
-			"</div>"+
-		"</div>"+
+html =	"<h2><%= j @product.carmodelsubtype.title %><br /><%= j session[:car_name]%> <%= j session[:model_name]%></h2>"+
+	"<div class='more_block'>"+
+	  "<% if @product.photos.any? %>"+
+	    "<%= j image_tag(@product.photos.first.image.url(:big), {:title=>@product.title, :width=>540}) %>"+
+	  "<% else %>"+
+	    "<%= j image_tag(@car_name.downcase+'.png') %>"+
+	  "<% end %>"+
+	  "<table cellspacing='0' cellpadding='0' width='540'>"+
+	    "<tr class='fon'>"+
+	      "<td valign='top' class='left'><strong><span>Производитель:</span></strong></td>"+
+	      "<td class='right'><span><% @cars.each do |car| %><%= car %>&nbsp;<% end %></span></td>"+
+	    "</tr>"+
+	    "<tr>"+
+	      "<td valign='top' class='left'><strong><span>Описание:</span></strong></td>"+
+	      "<td class='right'><span><%= @product.title %></span></td>"+
+	    "</tr>"+
+	    "<tr class='fon'>"+
+	      "<td valign='top' class='left'><strong><span>Состояние:</span></strong></td>"+
+	      "<td class='right'><span><%= @product.condition %></span></td>"+
+	    "</tr>"+
+	    "<tr>"+
+	      "<td valign='top' class='left'><strong><span>Наличие:</span></strong></td>"+
+	      "<td class='right'><span><%= @product.status %></span></td>"+
+	    "</tr>"+
+	    "<tr class='fon'>"+
+	      "<td valign='top' class='left'><strong><span>Стоимость:</span></strong></td>"+
+	      "<td class='right'><span><%= @product.price %> руб.</span></td>"+
+	    "</tr>"+
+	  "</table>"+
 	"</div>";
+$("#banners_on_product_search").hide();
 $("#showproducts").append(html);
+$("#breadcrumbs").html(	'<%= link_to @page.title, refinery.products_products_path %> / '+
+							'<%= link_to session[:car_name]+' '+session[:model_name], refinery.products_modelid_path(:search => session[:model_id]), :method => 'post'  %> / '+
+							'<%= link_to session[:subtype_name]+' ('+session[:type_name]+')', refinery.products_filter_path(:model => session[:model_id], :subtype => session[:subtype_id]), :remote => true, :method => 'post' %> / '+
+							'<span class="bread_current">Подробнее</span>');
+
 
