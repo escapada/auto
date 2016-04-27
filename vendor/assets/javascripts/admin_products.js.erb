@@ -46,7 +46,16 @@ $(function() {
 		$(this).toggle();
 	});
 
-
+	$(product_status).change(function(){
+		console.log("change");
+		if ($(this).val() == 'Отсутствует') {
+			$(product_count).val(0);
+			$(product_count).prop('readonly', 'readonly');
+		} else{
+			$(product_count).removeProp('readonly');
+			$(product_count).val(1);
+		};
+	});
 
 });
 	

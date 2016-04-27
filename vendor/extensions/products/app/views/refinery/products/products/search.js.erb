@@ -14,7 +14,7 @@ html =	"<div class='description_block'>"+
 						"<tr><td class='bold'>Производитель:</td><td><%= j product.carmodels.first.car.title %></td></tr>"+
 						"<tr><td class='bold'>Описание:</td><td><span><%= j product.title.truncate(21) %></span></td></tr>"+
 						"<tr><td class='bold'>Состояние:</td><td><span><%= j product.condition %></span></td></tr>"+
-						"<tr><td class='bold'>Наличие:</td><td><span><%= j product.status %></td></span></tr>"+
+						"<tr><td class='bold'>Наличие:</td><td><span><%= j product.status %> [<%= product.count %>]</td></span></tr>"+
 					"</table>"+
 				"</div>"+
 			"</div>"+

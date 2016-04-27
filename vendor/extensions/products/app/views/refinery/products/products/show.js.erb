@@ -21,7 +21,7 @@ html =	"<h2><%= j @product.carmodelsubtype.title %><br /><%= j session[:car_name
 	    "</tr>"+
 	    "<tr>"+
 	      "<td valign='top' class='left'><strong><span>Наличие:</span></strong></td>"+
-	      "<td class='right'><span><%= @product.status %></span></td>"+
+	      "<td class='right'><span><%= @product.status %> [<%= @product.count %>]</span></td>"+
 	    "</tr>"+
 	    "<tr class='fon'>"+
 	      "<td valign='top' class='left'><strong><span>Стоимость:</span></strong></td>"+

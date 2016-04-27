@@ -218,10 +218,12 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  execjs
   jquery-rails
   mysql2
   paperclip (~> 4.2)
   rails (= 3.2.21)
+  rake
   refinerycms (~> 2.1.0)
   refinerycms-acts-as-indexed (~> 1.0.0)
   refinerycms-items!

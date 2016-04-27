@@ -29,4 +29,5 @@ ru:
         carmodelsubtype_id: Подтип
         condition: Состояние
         status: Статус
+        count: Кол-во
         price: Цена

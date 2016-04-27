@@ -1,3 +1,10 @@
 <%=raw @page.content_for(:body_content_title) %>
+<% content_for :mapbody do %>
+	<% content_for :advanced_scripts do %>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script src="<%= asset_path("gmap.js") %>"></script>
+	<% end %>
+	<div id="gmap"></div>
+<% end %>
 
 <%= render '/refinery/content_page' %>

@@ -76,6 +76,13 @@
     </div>
   </div>
 
+  <div id="count_div">
+    <div class='field'>
+      <%= f.label :count -%>
+      <%= f.text_field :count -%>
+    </div>
+  </div>
+
 
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,

@@ -1,4 +1,22 @@
 <%= render '/refinery/products/products/carsearch' %>
 <% content_for :body do %>
 <% end %>
+<% content_for :mapbody do %>
+	<% content_for :advanced_scripts do %>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script src="<%= asset_path("gmap.js") %>"></script>
+	<% end %>
+	<div class="separator"></div>
+	<h1>ТРАНСПОРТНАЯ ДОСТУПНОСТЬ</h1>
+	<div id="gmap"></div>
+	<div id="info_block">
+		<div id="info_money"><div>Покупая у нас, вы экономите не только значительные суммы, но и драгоценное время.</div>
+		</div>
+		<div id="info_car"><div>Склад расположен в минутной близости от КАД, Таллинского шоссе, Волхонского шоссе, пр.Жукова, пр.Ветеранов, Ленинского пр., пр.Народного ополчения.</div>
+		</div>
+		<div id="info_time"><div>Время работы нашего склада мы посторались сделать максимально удобным для посетителей. Теперь мы открыты каждый день с 10 до 20 часов.</div>
+		</div>
+	</div>
+<% end %>
+
 <%= render '/refinery/content_page' %>

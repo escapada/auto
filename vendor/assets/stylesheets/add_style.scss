@@ -42,7 +42,8 @@
 #add_type_div{float: left; margin-left: 20px;}
 #name_div{margin-bottom: 5px;/*clear:left; float: left;margin-right: 20px;*/}
 #cond_div{float: left;margin-right: 20px;}
-#status_div{float: left; margin-bottom: 15px;}
+#status_div{float: left; margin-right: 20px;}
+#count_div{float: left; margin-bottom: 15px; input{width:50px; text-align: center;}}
 #price_div{clear:left;float: left; margin-right: 20px;}
 #new_product .form-actions{clear: both;  display: block;}
 .edit_product .form-actions{clear: both;  display: block;}

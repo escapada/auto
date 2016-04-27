@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.version           = '1.0'
   s.description       = 'Ruby on Rails Products extension for Refinery CMS'
   s.date              = '2015-05-20'
+  s.authors = ['Refinery']
   s.summary           = 'Products extension for Refinery CMS'
   s.require_paths     = %w(lib)
   s.files             = Dir["{app,config,db,lib}/**/*"] + ["readme.md"]
