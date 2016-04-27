@@ -61,5 +61,6 @@ gem "paperclip", "~> 4.2"
 gem 'execjs'
 gem "therubyracer"
 gem 'rake'
+gem 'fotoramajs'
 
 gem 'refinerycms-products', :path => 'vendor/extensions'
