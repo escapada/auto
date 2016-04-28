@@ -2,7 +2,11 @@ $("#showproducts").html('');
 html =	"<h2><%= j @product.carmodelsubtype.title %><br /><%= j session[:car_name]%> <%= j session[:model_name]%></h2>"+
 	"<div class='more_block'>"+
 	  "<% if @product.photos.any? %>"+
-	    "<%= j image_tag(@product.photos.first.image.url(:big), {:title=>@product.title, :width=>540}) %>"+
+	    "<div class='fotorama' data-width='540' data-arrows='always' data-loop='true'>"+
+	      "<% @product.photos.each do |p| %>"+
+	        "<%= j image_tag(p.image.url(:big), {:width=>540}) %>"+
+	      "<% end %>"+
+      "</div>"+
 	  "<% else %>"+
 	    "<%= j image_tag(@car_name.downcase+'.png') %>"+
 	  "<% end %>"+
@@ -35,5 +39,8 @@ $("#breadcrumbs").html(	'<%= link_to @page.title, refinery.products_products_pat
 							'<%= link_to session[:car_name]+' '+session[:model_name], refinery.products_modelid_path(:search => session[:model_id]), :method => 'post'  %> / '+
 							'<%= link_to session[:subtype_name]+' ('+session[:type_name]+')', refinery.products_filter_path(:model => session[:model_id], :subtype => session[:subtype_id]), :remote => true, :method => 'post' %> / '+
 							'<span class="bread_current">Подробнее</span>');
+
+//reinitialize the plugin (because of AJAX)
+$('.fotorama').fotorama();
 
 

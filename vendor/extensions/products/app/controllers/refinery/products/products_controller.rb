@@ -28,13 +28,13 @@ module Refinery
           @items.select! {|e| e.photos.present?}  #rewrite
           @items.shuffle!
 
-          @vw = Carmodel.includes(:car, :products).where('cars.title' => 'VW')
+          @vw = Carmodel.includes(:car, :products).where('cars.title' => 'VW').order('carmodels.title asc')
           @vw.delete_if { |e| !(e.products.any?) }
-          @audi = Carmodel.includes(:car, :products).where('cars.title' => 'AUDI')
+          @audi = Carmodel.includes(:car, :products).where('cars.title' => 'AUDI').order('carmodels.title asc')
           @audi.delete_if { |e| !(e.products.any?) }
-          @skoda = Carmodel.includes(:car, :products).where('cars.title' => 'SKODA')
+          @skoda = Carmodel.includes(:car, :products).where('cars.title' => 'SKODA').order('carmodels.title asc')
           @skoda.delete_if { |e| !(e.products.any?) }
-          @seat = Carmodel.includes(:car, :products).where('cars.title' => 'SEAT')
+          @seat = Carmodel.includes(:car, :products).where('cars.title' => 'SEAT').order('carmodels.title asc')
           @seat.delete_if { |e| !(e.products.any?) }
         end
 

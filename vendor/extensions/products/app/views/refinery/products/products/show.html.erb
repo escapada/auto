@@ -4,7 +4,7 @@
     <h2><%= @product.carmodelsubtype.title %></h2>
     <div class='more_block'>
       <% if @product.photos.any? %>
-        <div class="fotorama">
+        <div class="fotorama" data-width="540" data-arrows="always" data-loop="true">
           <% @product.photos.each do |p| %>
             <%= image_tag(p.image.url(:big), {:width=>540}) %>
           <% end %>
