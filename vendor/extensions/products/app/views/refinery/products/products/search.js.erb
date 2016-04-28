@@ -1,7 +1,7 @@
 $("#showproducts").html("<h2><%= j @products.first.carmodelsubtype.title %></h2>");
 
 <% @products.each do |product| %>
-<%product.photos.any? ?  photopath=product.photos.first.image.url(:thumb) : photopath=@car_name.downcase+'.png' %>
+<%product.photos.any? ?  photopath=product.photos.first.image.url(:thumb) : photopath=@car_name.downcase+'_thumb.png' %>
 
 html =	"<div class='description_block'>"+
 			"<div class='descr_div_top'>"+

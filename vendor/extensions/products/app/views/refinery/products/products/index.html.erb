@@ -6,7 +6,7 @@
     <%= link_to @page.title, refinery.products_products_path %> / <span class="bread_current"><%= @car_name+' '+@model_name %></span>
   </div>
   <div class="head_product">
-    <div><%=image_tag(@car_name.downcase+'.png')%></div>
+    <div><%=image_tag(@car_name.downcase+'_thumb.png')%></div>
     <h1><%= @car_name.upcase %> <%= @model_name.upcase %></h1>
   </div>
   <div id="tree">
