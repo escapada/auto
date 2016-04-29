@@ -1,5 +1,6 @@
 <div id="tree">
-  <% @categories.each do |type| %>
+  <% type_sorted = @categories.sort_by {|x| x.title} %>
+  <% type_sorted.each do |type| %>
     <div class="tree_type">
       <div class="tree_typename_wrap">
         <div class="tree_plus">
@@ -12,7 +13,8 @@
       <div class="tree_subtype">
         <ul id="subtype_ul<%= type.id %>">
           <li class="subtype_li"><%= text_field_tag 'manage_type', "", :typeid => type.id, :size => 25 -%><%= refinery_icon_tag("add.png", :class => "subplus") %></li>
-          <% type.carmodelsubtypes.each do |subtype| %>
+          <% subtype_sorted = type.carmodelsubtypes.sort_by {|x| x.title} %>
+          <% subtype_sorted.each do |subtype| %>
             <li class="subtype_li" subtype-id="<%= subtype.id %>"><input class="subtype_update" value="<%= subtype.title %>" size="25" />
               <%= refinery_icon_tag("tick.png", :class => "subtype_up") %>
               <%= refinery_icon_tag("delete.png", :class => "subtype_delete") %>
@@ -25,7 +27,8 @@
 </div>
 
 <div id="cartree">
-  <% @carcategories.each do |car| %>
+  <% car_sorted = @carcategories.sort_by {|x| x.title} %>
+  <% car_sorted.each do |car| %>
     <div class="tree_car">
       <div class="tree_carname_wrap">
         <div class="tree_plus">
@@ -38,7 +41,8 @@
       <div class="tree_model">
         <ul id="model_ul<%= car.id %>">
           <li class="model_li"><%= text_field_tag 'manage_model', "", :carid => car.id, :size => 25 -%><%= refinery_icon_tag("add.png", :class => "modelplus") %></li>
-          <% car.carmodels.each do |model| %>
+          <% model_sorted = car.carmodels.sort_by {|x| x.title} %>
+          <% model_sorted.each do |model| %>
             <li class="model_li" model-id="<%= model.id %>"><input class="subtype_update" value="<%= model.title %>" size="25" />
               <%= refinery_icon_tag("tick.png", :class => "model_up") %>
               <%= refinery_icon_tag("delete.png", :class => "model_delete") %>

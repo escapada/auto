@@ -10,8 +10,7 @@
     <h1><%= @car_name.upcase %> <%= @model_name.upcase %></h1>
   </div>
   <div id="tree">
-<% logger.debug("+++++++++#{@types.class}") %>
-    <% @types.order('carmodeltypes.title asc').each do |type| %>
+    <% @types.sort_by! {|x| x.title}.each do |type| %>
       <div class="tree_type">
         <div class="tree_typename_wrap">
           <div class="tree_plus">
@@ -23,9 +22,9 @@
         </div>
         <div class="tree_subtype">
           <ul>
-            <% type.carmodelsubtypes.each do |subtype| %>
+            <% sorted = type.carmodelsubtypes.sort_by {|x| x.title} %>
+            <% sorted.each do |subtype| %>
               <% if subtype.products.any? %>
-              <% logger.debug("+++++++++#{subtype.products.size}") %>
                 <li class="subtype_li"><%= link_to subtype.title, refinery.products_filter_path(:model => @model_id, :subtype => subtype.id), :remote => true, :method => "post" %></li>
               <% end %>
             <% end %>
